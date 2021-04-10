@@ -1,11 +1,15 @@
 <script lang="ts">
 import { h } from 'vue'
-import HelloWorld from './components/HelloWorld.vue';
+import  HelloWorld from '@/components/HelloWorld.vue';
 import Home from './components/Home.vue';
+import NotFoundComponent from './components/not-found.vue';
+import DesignBase from '@/components/design/base.vue';
+import Routes from './interface/Routes';
 
-const routes = {
+const routes: Routes = {
   '/': HelloWorld,
   '/home': Home,
+  '/design': DesignBase,
 };
 
 const SimpleRouter = {
@@ -26,6 +30,6 @@ const SimpleRouter = {
 export default SimpleRouter;
 </script>
 
-<style>
+<style scoped lang="less">
 
 </style>
