@@ -1,5 +1,6 @@
 <template>
-  <div>测试</div>
+  <h1>Coder X 一个任劳任怨的码农机器人</h1>
+  <img src="" alt="暂无图片">
 </template>
 
 <script lang="ts">
@@ -10,7 +11,7 @@ export default defineComponent(
       name: 'Home',
       props: {},
       setup: () => {
-
+        return {};
       },
     });
 </script>
