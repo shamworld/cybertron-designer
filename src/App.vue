@@ -1,27 +1,35 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
-</template>
-
 <script lang="ts">
-import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import { h } from 'vue'
+import  HelloWorld from '@/components/HelloWorld.vue';
+import Home from './components/Home.vue';
+import NotFoundComponent from './components/not-found.vue';
+import DesignBase from '@/components/design/base.vue';
+import Routes from './interface/Routes';
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
+const routes: Routes = {
+  '/': HelloWorld,
+  '/home': Home,
+  '/design': DesignBase,
+};
+
+const SimpleRouter = {
+  data: () => ({
+    currentRoute: window.location.pathname
+  }),
+
+  computed: {
+    CurrentComponent() {
+      return routes[this.currentRoute] || NotFoundComponent
+    }
+  },
+
+  render() {
+    return h(this.CurrentComponent)
   }
-})
+}
+export default SimpleRouter;
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped lang="less">
+
 </style>
