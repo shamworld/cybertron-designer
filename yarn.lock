@@ -809,6 +809,11 @@ vue-cli-plugin-style-resources-loader@~0.1.5:
   resolved "https://registry.npm.taobao.org/vue-cli-plugin-style-resources-loader/download/vue-cli-plugin-style-resources-loader-0.1.5.tgz#3e95f4df41f5408e1255664690698c0533648109"
   integrity sha1-PpX030H1QI4SVWZGkGmMBTNkgQk=
 
+vue-router@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.npm.taobao.org/vue-router/download/vue-router-4.0.6.tgz?cache=0&sync_timestamp=1617697726574&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-router%2Fdownload%2Fvue-router-4.0.6.tgz#91750db507d26642f225b0ec6064568e5fe448d6"
+  integrity sha1-kXUNtQfSZkLyJbDsYGRWjl/kSNY=
+
 vue-tsc@^0.0.15:
   version "0.0.15"
   resolved "http://npm.poizon.com/vue-tsc/-/vue-tsc-0.0.15.tgz#2951f0479bf0b966c828748927e8ea5b82a15070"
