@@ -1,6 +1,6 @@
 <template>
-  <div class="w-screen flex bg-white dark:bg-gray-800 h-40">
-    <div class="w-1/4 h-full text-black dark:text-white">
+  <div class="w-screen flex bg-white dark:bg-transparent h-40">
+    <div class="w-1/4 h-full text-black dark:text-white dark:bg-primary-purple dark:hover:bg-hover-purple">
       左区
     </div>
     <div class="w-1/2 h-full text-black dark:text-white">
