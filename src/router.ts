@@ -1,6 +1,7 @@
 import Home from '@/components/Home.vue';
 import DesignBase from '@/components/design/base.vue';
 import ManagementBase from '@/components/management/base.vue';
+import ColorSpecification from '@/components/color-specification.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
@@ -16,6 +17,9 @@ const routes = [
   {
     path: '/management', name: 'Management', component: ManagementBase, children: [],
   },
+  {
+    path: '/color-specification', name: 'ColorSpecification', component: ColorSpecification,
+  }
 ];
 
 const router = createRouter({

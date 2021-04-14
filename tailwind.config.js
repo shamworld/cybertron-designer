@@ -30,6 +30,7 @@ module.exports = {
         'main-bg': coderXColors.primaryBlack,
         'item-selected-bg': coderXColors.black10,
         'text': coderXColors.black80,
+        'text-tips': coderXColors.black60,
         'text-hover': coderXColors.white,
         'error': coderXColors.red,
         'menu-icon-hover-bg': coderXColors.primaryPurple,
