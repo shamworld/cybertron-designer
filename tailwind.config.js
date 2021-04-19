@@ -17,9 +17,11 @@ module.exports = {
   theme: {
     extend: {
       spacing: {
-        '30': '30px',
-        '40': '40px',
-        '300': '300px',
+        1: '1px',
+        2: '2px',
+        30: '30px',
+        40: '40px',
+        300: '300px',
       },
       colors: {
         'btn-bg': coderXColors.primaryPurple,
