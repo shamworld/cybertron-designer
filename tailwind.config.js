@@ -8,8 +8,8 @@ const coderXColors = {
   itemBlack: '#b7bac7',
   primaryBlack: '#15192c',
   white: '#fff',
-  red: '#e93c51',
-};
+  red: '#e93c51'
+}
 
 module.exports = {
   purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
@@ -21,31 +21,31 @@ module.exports = {
         2: '2px',
         30: '30px',
         40: '40px',
-        300: '300px',
+        300: '300px'
       },
       colors: {
         'btn-bg': coderXColors.primaryPurple,
         'btn-hover-bg': coderXColors.darkPurple,
-        'border': coderXColors.black10,
+        border: coderXColors.black10,
         'panel-bg': coderXColors.black5,
         'panel-hover-bg': coderXColors.black10,
         'main-bg': coderXColors.primaryBlack,
         'item-selected-bg': coderXColors.black10,
-        'text': coderXColors.black80,
+        text: coderXColors.black80,
         'text-tips': coderXColors.black60,
         'text-hover': coderXColors.white,
-        'error': coderXColors.red,
-        'menu-icon-hover-bg': coderXColors.primaryPurple,
+        error: coderXColors.red,
+        'menu-icon-hover-bg': coderXColors.primaryPurple
       }
-    },
+    }
   },
   variants: {
     extend: {},
-    container: [],
+    container: []
   },
   corePlugins: {
     // ...
-    container: false,
+    container: false
   },
-  plugins: [],
+  plugins: []
 }
