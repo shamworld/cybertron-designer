@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import ToolBar from '@/components/design/tool-bar.vue';
+import ToolBar from '@/views/design/tool-bar.vue';
 
 export default {
   name: 'base',
