@@ -1,7 +1,7 @@
-import Home from '@/components/Home.vue';
-import DesignBase from '@/components/design/base.vue';
-import ManagementBase from '@/components/management/base.vue';
-import ColorSpecification from '@/components/color-specification.vue';
+import Home from '@/views/Home.vue';
+import DesignBase from '@/views/design/base.vue';
+import ManagementBase from '@/views/management/base.vue';
+import ColorSpecification from '@/views/color-specification.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
