@@ -38,7 +38,7 @@
     </li>
     <li class="flex items-center">
       <span>hover 文本颜色</span>
-      <div class="h-30 border-1 dark:border-red w-1/2 dark:bg-text-hover m-4"></div>
+      <div class="h-30 border-2 dark:border-red w-1/2 dark:bg-text-hover m-4"></div>
     </li>
     <li class="flex items-center">
       <span>错误提示色</span>
