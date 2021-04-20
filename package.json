@@ -11,6 +11,7 @@
     "lint-staged": {
       "*.{vue,js,ts}": "eslint --fix"
     },
+    "commit":"git add .&& npx git-cz",
     "test": "jest"
   },
   "dependencies": {
