@@ -3,7 +3,9 @@
 </template>
 
 <script lang="ts">
-import ToolBar from '@/views/design/tool-bar.vue'
+import { useStore } from 'vuex'
+import ToolBar from './tool-bar.vue'
+import { GlobalDataProps } from '../../store'
 
 export default {
   name: 'base',
@@ -12,6 +14,10 @@ export default {
   },
   props: {},
   setup() {
+    const store = useStore<GlobalDataProps>()
+    const data = store.state.editor
+    console.log(data)
+
     return {
       msg: '测试信息1'
     }

@@ -6,18 +6,19 @@
     "build": "vue-tsc --noEmit && vite build",
     "dev": "vite",
     "prepare": "husky install",
-    "prettier": "npx prettier --write .",
+    "format": "npx prettier --write .",
     "fix": "npx eslint --fix",
-    "lint-staged": {
-      "*.{vue,js,ts}": "eslint --fix"
-    },
-    "commit":"git add .&& npx git-cz",
+    "commit": "git add .&& npx git-cz",
     "test": "jest"
   },
   "dependencies": {
     "ant-design-vue": "^2.1.2",
     "vue": "^3.0.5",
-    "vue-router": "^4.0.6"
+    "vue-router": "^4.0.6",
+    "vuex": "^4.0.0"
+  },
+  "lint-staged": {
+    "*.{vue,js,ts}": "eslint --fix"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.1",

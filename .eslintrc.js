@@ -30,5 +30,9 @@ module.exports = {
       }
     ]
   },
-  settings: {}
+  settings: {
+    jest: {
+      version: 26
+    }
+  }
 }
