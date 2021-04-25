@@ -1,12 +1,12 @@
 <template>
-<a-layout>
+  <a-layout>
     <a-layout-header class="header">
       <div class="logo" />
       <a-menu
-          theme="dark"
-          mode="horizontal"
-          v-model:selectedKeys="selectedKeys1"
-          :style="{ lineHeight: '64px' }"
+        theme="dark"
+        mode="horizontal"
+        v-model:selectedKeys="selectedKeys1"
+        :style="{ lineHeight: '64px' }"
       >
         <a-menu-item key="1"><router-link to="/design">设计</router-link></a-menu-item>
         <a-menu-item key="2">nav 2</a-menu-item>
@@ -16,10 +16,10 @@
     <a-layout>
       <a-layout-sider width="200" style="background: #fff">
         <a-menu
-            mode="inline"
-            v-model:selectedKeys="selectedKeys2"
-            v-model:openKeys="openKeys"
-            :style="{ height: '100%', borderRight: 0 }"
+          mode="inline"
+          v-model:selectedKeys="selectedKeys2"
+          v-model:openKeys="openKeys"
+          :style="{ height: '100%', borderRight: 0 }"
         >
           <a-sub-menu key="sub1">
             <template #title>
@@ -66,7 +66,7 @@
           <a-breadcrumb-item>App</a-breadcrumb-item>
         </a-breadcrumb>
         <a-layout-content
-            :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
+          :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
         >
           Content
         </a-layout-content>
@@ -78,9 +78,7 @@
 <script>
 export default {
   name: 'base'
-};
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
