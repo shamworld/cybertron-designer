@@ -3,27 +3,25 @@
 </template>
 
 <script lang="ts">
-import ToolBar from '@/views/design/tool-bar.vue';
+import ToolBar from './tool-bar.vue';
 
 export default {
   name: 'base',
   components: {
-    'tool-bar': ToolBar,
+    'tool-bar': ToolBar
   },
   props: {},
   setup() {
     return {
-      msg: '测试信息1',
-    };
+      msg: '测试信息1'
+    }
   },
   data() {
     return {
-      msg: '基础信息',
-    };
-  },
-};
+      msg: '基础信息'
+    }
+  }
+}
 </script>
 
-<style lang="less" scoped>
-
-</style>
+<style lang="less" scoped></style>
