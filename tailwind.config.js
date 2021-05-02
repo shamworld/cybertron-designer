@@ -17,11 +17,19 @@ module.exports = {
   theme: {
     extend: {
       spacing: {
+        // 1px 这个值貌似不 work，不知道是不是 tailwindcss 的 bug
         1: '1px',
         2: '2px',
+        10: '10px',
+        24: '24px',
         30: '30px',
         40: '40px',
-        300: '300px'
+        60: '60px',
+        180: '180px',
+        210: '210px',
+        240: '240px',
+        300: '300px',
+        400: '400px',
       },
       colors: {
         'btn-bg': coderXColors.primaryPurple,
