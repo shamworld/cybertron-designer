@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col h-screen w-screen dark:bg-main-bg">
-    <section class="h-60 w-210 border-b border-border"></section>
+    <section class="h-60 border-b border-border"></section>
     <section class="body flex flex-grow">
       <div class="component-panel border-border">
         <panel-area class="h-full"></panel-area>
