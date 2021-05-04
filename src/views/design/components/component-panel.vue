@@ -39,14 +39,11 @@ export default defineComponent({
   },
   props: {},
   methods: {
-    addWidget(data) {
-      console.log('data: ', data);
-      const result = {
+    addWidget(data: { type: any; }) {
+      return {
         id: uuid(),
         type: data.type
       };
-      console.log('result: ', result);
-      return result;
     }
   },
   setup: () => {
@@ -60,7 +57,7 @@ export default defineComponent({
 
 <style scoped lang="less">
 .icon :deep(svg) {
-  color: "#a3a8b8";
+  color: '#a3a8b8';
   width: 40px;
   height: 40px;
 }

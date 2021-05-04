@@ -33,12 +33,10 @@ const ContainerWidget = defineComponent({
   computed: {
     curStyle() {
       const styleRaw = this.style;
-      const result = styleRaw.reduce((accumulator, curVal) => {
+      return styleRaw.reduce((accumulator, curVal) => {
         accumulator[curVal.name] = `${curVal.value}${curVal.unit}`;
         return accumulator;
       }, {});
-      console.log('result: ', result);
-      return result;
     }
   }
 });
