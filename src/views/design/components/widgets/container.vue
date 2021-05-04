@@ -5,6 +5,7 @@
 <script>
 import {defineComponent} from 'vue';
 import StyleValueUnit from '@/enum/style-value-unit';
+import {convertSchemaToStyle} from '@/util';
 
 const ContainerWidget = defineComponent({
   name: 'container',
@@ -32,11 +33,7 @@ const ContainerWidget = defineComponent({
   },
   computed: {
     curStyle() {
-      const styleRaw = this.style;
-      return styleRaw.reduce((accumulator, curVal) => {
-        accumulator[curVal.name] = `${curVal.value}${curVal.unit}`;
-        return accumulator;
-      }, {});
+      return convertSchemaToStyle(this.style);
     }
   }
 });
