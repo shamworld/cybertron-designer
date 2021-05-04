@@ -1,11 +1,12 @@
 <template>
-  <div class="w-60 h-40 border-dashed"></div>
+  <div class="w-60 h-40 border-dashed" :style="curStyle"></div>
 </template>
 
 <script>
-import StyleValueUnit from '../../../../enum/style-value-unit';
+import {defineComponent} from 'vue';
+import StyleValueUnit from '@/enum/style-value-unit';
 
-export default {
+const ContainerWidget = defineComponent({
   name: 'container',
   props: {
     style: {
@@ -20,11 +21,30 @@ export default {
           name: 'height',
           value: 40,
           unit: StyleValueUnit.px,
+        },
+        {
+          name: 'backgroundColor',
+          value: '#f00',
+          unit: StyleValueUnit.none,
         }
       ],
     }
+  },
+  computed: {
+    curStyle() {
+      const styleRaw = this.style;
+      const result = styleRaw.reduce((accumulator, curVal) => {
+        accumulator[curVal.name] = `${curVal.value}${curVal.unit}`;
+        return accumulator;
+      }, {});
+      console.log('result: ', result);
+      return result;
+    }
   }
-};
+});
+
+export default ContainerWidget;
+
 </script>
 
 <style scoped></style>

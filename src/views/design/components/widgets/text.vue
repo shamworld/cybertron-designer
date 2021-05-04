@@ -3,14 +3,15 @@
 </template>
 
 <script>
-export default {
+import {defineComponent} from 'vue';
+
+const TextWidget = defineComponent({
   name: 'text',
   props: {
-    data: String,
+    data: String
   }
-};
+});
+export default TextWidget;
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

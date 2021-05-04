@@ -1,25 +1,54 @@
 <template>
-  <a-tabs class="component-tabs" v-model:activeKey="activeKey" :hideAdd="true" :tabBarStyle="{ color: '#a9a8b8' }" :tabBarGutter="0">
+  <a-tabs
+    class="component-tabs"
+    v-model:activeKey="activeKey"
+    :hideAdd="true"
+    :tabBarStyle="{ color: '#a9a8b8' }"
+    :tabBarGutter="0"
+  >
     <a-tab-pane class="flex flex-wrap p-10" v-for="list in data" :key="list.type" :tab="list.typeName">
-      <div class="flex flex-col align-middle m-10" v-for="item in list.list" :key="item.id">
-        <component class="icon" :is="item.icon" style="color: #a3a8b8"></component>
-        <span class="dark:text-text">{{ item.name }}</span>
-      </div>
+      <draggable
+        :list="list.list"
+        :group="{ name: 'component', pull: 'clone', put: false }"
+        :clone="addWidget"
+        item-key="id"
+      >
+        <template #item="{ element }">
+          <div class="flex flex-col align-middle m-10">
+            <component class="icon" :is="element.icon" style="color: #a3a8b8"></component>
+            <span class="dark:text-text">{{ element.name }}</span>
+          </div>
+        </template>
+      </draggable>
     </a-tab-pane>
   </a-tabs>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import draggable from 'vuedraggable';
+import { v4 as uuid } from 'uuid';
 import mockComponentList from '../../../mock/component-list';
 import { BuildOutlined } from '@ant-design/icons-vue';
 
 export default defineComponent({
   name: 'component-panel',
   components: {
-    BuildOutlined
+    BuildOutlined,
+    draggable
   },
   props: {},
+  methods: {
+    addWidget(data) {
+      console.log('data: ', data);
+      const result = {
+        id: uuid(),
+        type: data.type
+      };
+      console.log('result: ', result);
+      return result;
+    }
+  },
   setup: () => {
     return {
       data: ref(mockComponentList),

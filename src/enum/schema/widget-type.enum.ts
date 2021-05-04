@@ -1,6 +1,6 @@
 enum WidgetType {
   container = 'container',
-  text = 'text',
+  text = 'txt',
   link = 'link',
   image = 'image',
   input = 'input',

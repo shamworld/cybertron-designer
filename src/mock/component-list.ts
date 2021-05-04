@@ -4,23 +4,27 @@ const mockComponentList = [
     typeName: '通用',
     list: [
       {
+        id: 0,
         name: '容器',
-        id: 0,
+        type: 'container',
         icon: 'BuildOutlined'
       },
       {
+        id: 1,
         name: '文本',
-        id: 0,
+        type: 'text',
         icon: 'BuildOutlined'
       },
       {
+        id: 2,
         name: '图片',
-        id: 0,
+        type: 'img',
         icon: 'BuildOutlined'
       },
       {
+        id: 3,
         name: '列表',
-        id: 0,
+        type: 'list',
         icon: 'BuildOutlined'
       }
     ]
@@ -28,7 +32,32 @@ const mockComponentList = [
   {
     type: 2,
     typeName: '自定义',
-    list: []
+    list: [
+      {
+        id: 0,
+        name: '列表',
+        type: 'list',
+        icon: 'BuildOutlined'
+      },
+      {
+        id: 1,
+        name: '列表',
+        type: 'list',
+        icon: 'BuildOutlined'
+      },
+      {
+        id: 3,
+        name: '列表',
+        type: 'list',
+        icon: 'BuildOutlined'
+      },
+      {
+        id: 3,
+        name: '列表',
+        type: 'list',
+        icon: 'BuildOutlined'
+      }
+    ]
   },
   {
     type: 3,
