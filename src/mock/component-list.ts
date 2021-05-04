@@ -12,13 +12,13 @@ const mockComponentList = [
       {
         id: 1,
         name: '文本',
-        type: 'text',
+        type: 'textWidget',
         icon: 'BuildOutlined'
       },
       {
         id: 2,
         name: '图片',
-        type: 'img',
+        type: 'imageWidget',
         icon: 'BuildOutlined'
       },
       {
