@@ -1,12 +1,25 @@
 <template>
-
+  <img :src="url" :alt="alt"/>
 </template>
 
 <script>
 import {defineComponent} from 'vue';
 
 const ImgWidget = defineComponent({
-  name: 'imageWidget'
+  name: 'imageWidget',
+  props: {
+    url: {
+      type: String,
+      default: '',
+    },
+    alt: {
+      type: String,
+      default: '',
+    },
+    style: {
+
+    }
+  }
 });
 
 export default ImgWidget;
