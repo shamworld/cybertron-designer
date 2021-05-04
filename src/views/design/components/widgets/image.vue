@@ -6,7 +6,7 @@
 import {defineComponent} from 'vue';
 
 const ImgWidget = defineComponent({
-  name: 'image'
+  name: 'imageWidget'
 });
 
 export default ImgWidget;

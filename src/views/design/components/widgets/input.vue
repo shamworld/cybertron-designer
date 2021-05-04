@@ -4,7 +4,7 @@
 import { defineComponent } from 'vue';
 
 const InputWidget = defineComponent({
-  name: 'input'
+  name: 'inputWidget'
 });
 
 export default InputWidget;
