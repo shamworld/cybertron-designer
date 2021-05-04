@@ -10,7 +10,7 @@
       <draggable
         :list="list.list"
         :group="{ name: 'component', pull: 'clone', put: false }"
-        :clone="addWidget"
+        :clone="insertWidget"
         item-key="id"
       >
         <template #item="{ element }">
@@ -39,7 +39,7 @@ export default defineComponent({
   },
   props: {},
   methods: {
-    addWidget(data: { type: any; }) {
+    insertWidget(data: { type: any; }) {
       return {
         id: uuid(),
         type: data.type
@@ -57,7 +57,7 @@ export default defineComponent({
 
 <style scoped lang="less">
 .icon :deep(svg) {
-  color: '#a3a8b8';
+  color: "#a3a8b8";
   width: 40px;
   height: 40px;
 }
