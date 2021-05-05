@@ -1,10 +1,16 @@
 <template>
-  <draggable class="border-border" :style="schema.props.style" :list="data" group="component" item-key="id" @change="onchange">
+  <draggable
+    class="border-border"
+    :style="schema.props.style"
+    :list="data"
+    group="component"
+    item-key="id"
+    @change="onchange"
+  >
     <template #item="{ element }">
-        <component class="dark:bg-white" :is="element.type">{{ element }}</component>
+      <component class="dark:bg-white" :is="element.type" :props="element" />
     </template>
   </draggable>
-  <!--  <CustomClone></CustomClone>-->
 </template>
 
 <script>
@@ -21,11 +27,10 @@ export default {
   components: {
     draggable,
     container: ContainerWidget,
-    image: ImgWidget,
-    txt: TextWidget,
+    imageWidget: ImgWidget,
+    textWidget: TextWidget,
     input: InputWidget,
     list: ListWidget
-    // CustomClone
   },
   props: {
     schema: Object
