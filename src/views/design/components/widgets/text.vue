@@ -9,7 +9,7 @@ import { convertSchemaToStyle } from '@/util';
 import WidgetType from '@/enum/schema/widget-type.enum';
 
 const TextWidget = defineComponent({
-  name: 'textWidget',
+  name: 'text-widget',
   props: {
     content: {
       type: String,

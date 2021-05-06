@@ -6,25 +6,25 @@ const mockComponentList = [
       {
         id: 0,
         name: '容器',
-        type: 'container',
+        type: 'container-widget',
         icon: 'BuildOutlined'
       },
       {
         id: 1,
         name: '文本',
-        type: 'textWidget',
+        type: 'text-widget',
         icon: 'BuildOutlined'
       },
       {
         id: 2,
         name: '图片',
-        type: 'imageWidget',
+        type: 'image-widget',
         icon: 'BuildOutlined'
       },
       {
         id: 3,
         name: '列表',
-        type: 'list',
+        type: 'list-widget',
         icon: 'BuildOutlined'
       }
     ]

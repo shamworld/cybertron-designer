@@ -1,17 +1,14 @@
 <template>
   <div class="flex flex-col h-screen w-screen">
-    <section class="h-60 border-b border-border"></section>
-    <section class="body flex flex-grow">
-      <div class="component-panel border-border">
+    <section class="flex-shrink-0 h-60 border-b border-border"></section>
+    <section class="flex-shrink-0 body flex flex-grow">
+      <div class="flex-shrink-0 component-panel border-border">
         <panel-area class="h-full"></panel-area>
       </div>
-      <div class="designer-canvas flex-grow">
-        <DesignerCanvas
-          class="w-375 h-812 dark:border border dark:border-border mx-auto my-20"
-          :schema="schema"
-        ></DesignerCanvas>
+      <div class="flex-shrink-0 designer-canvas flex-grow">
+        <editor-area :schema="schema"/>
       </div>
-      <div class="form-panel w-240 border-l border-border"></div>
+      <div class="flex-shrink-0 form-panel w-240 border-l border-border"></div>
     </section>
   </div>
 </template>
@@ -20,6 +17,7 @@
 import ToolBar from './components/tool-bar.vue';
 import PanelArea from './components/panel-area.vue';
 import DesignerCanvas from './components/canvas.vue';
+import EditorArea from './components/editor-area.vue';
 import { getUUID } from 'ant-design-vue/es/vc-select/utils/commonUtil';
 import WidgetType from '@/enum/schema/widget-type.enum';
 
@@ -28,6 +26,7 @@ export default {
   components: {
     ToolBar,
     PanelArea,
+    EditorArea,
     DesignerCanvas
   },
   props: {},

@@ -27,9 +27,9 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import draggable from 'vuedraggable';
-import { v4 as uuid } from 'uuid';
-import mockComponentList from '../../../mock/component-list';
 import { BuildOutlined } from '@ant-design/icons-vue';
+import mockComponentList from '../../../mock/component-list';
+import SchemaService from '@/service/schema-operation/index.service';
 
 export default defineComponent({
   name: 'component-panel',
@@ -40,10 +40,7 @@ export default defineComponent({
   props: {},
   methods: {
     insertWidget(data: { type: any; }) {
-      return {
-        id: uuid(),
-        type: data.type
-      };
+      return SchemaService.insertWidget(data);
     }
   },
   setup: () => {

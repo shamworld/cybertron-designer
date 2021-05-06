@@ -1,11 +1,11 @@
 <template>
   <draggable
-    class="border-border"
-    :style="schema.props.style"
-    :list="data"
-    group="component"
-    item-key="id"
-    @change="onchange"
+      class="border-border"
+      :style="schema.props.style"
+      :list="data"
+      group="component"
+      item-key="id"
+      @change="onchange"
   >
     <template #item="{ element }">
       <component class="dark:bg-white" :is="element.type" :props="element" />

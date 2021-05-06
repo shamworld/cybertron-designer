@@ -6,7 +6,7 @@
 import { defineComponent } from 'vue';
 
 const ListWidget = defineComponent({
-  name: 'list'
+  name: 'list-widget'
 });
 
 export default ListWidget;

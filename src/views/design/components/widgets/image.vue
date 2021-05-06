@@ -6,7 +6,7 @@
 import {defineComponent} from 'vue';
 
 const ImgWidget = defineComponent({
-  name: 'imageWidget',
+  name: 'image-widget',
   props: {
     url: {
       type: String,
