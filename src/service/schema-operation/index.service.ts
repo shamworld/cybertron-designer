@@ -4,8 +4,8 @@
 import { v4 as uuid } from 'uuid';
 import SchemaOperator from '@/interface/SchemaOperator';
 import SchemaOperationPayload from '@/interface/schema-operation-payload';
-import StyleValueUnit from "@/enum/style-value-unit";
-import DynamicObject from "@/interface/dynamic-object";
+import StyleValueUnit from '@/enum/style-value-unit';
+import DynamicObject from '@/interface/dynamic-object';
 
 class SchemaService implements SchemaOperator {
   static widgetGenerationDict: DynamicObject = {
@@ -34,7 +34,8 @@ class SchemaService implements SchemaOperator {
               unit: StyleValueUnit.none
             }
           ]
-        }
+        },
+        children: []
       };
     },
     'text-widget': (data: { type: any }) => {
@@ -108,7 +109,7 @@ class SchemaService implements SchemaOperator {
               name: 'min-height',
               value: 40,
               unit: StyleValueUnit.px
-            },
+            }
           ]
         }
       };
@@ -122,17 +123,16 @@ class SchemaService implements SchemaOperator {
         props: {
           data: {
             type: Array,
-            value: [],
+            value: []
           },
-          styles: [
-
-          ]
-        }
+          styles: []
+        },
+        children: []
       };
-    },
+    }
   };
 
-  insertWidget(data: {type: string}): any {
+  insertWidget(data: { type: string }): any {
     debugger;
     return SchemaService.widgetGenerationDict[data.type](data);
   }
