@@ -10,7 +10,6 @@ import DynamicObject from '@/interface/dynamic-object';
 class SchemaService implements SchemaOperator {
   static widgetGenerationDict: DynamicObject = {
     'container-widget': (data: { type: any }) => {
-      debugger;
       return {
         id: uuid(),
         type: data.type,
@@ -133,7 +132,6 @@ class SchemaService implements SchemaOperator {
   };
 
   insertWidget(data: { type: string }): any {
-    debugger;
     return SchemaService.widgetGenerationDict[data.type](data);
   }
 

@@ -1,17 +1,14 @@
 <template>
   <draggable
     :list="data"
-    :style="curStyle"
-    class="border-border min-h-24"
+    :component-data="{style: curStyle}"
+    class="border border-border"
     group="component"
     item-key="id"
     @change="onchange"
   >
     <template #item="{ element }">
-      <div>
-        {{ element }}
-        <component :is="element.type" :schema="element.schema" :props="element" class="dark:bg-white"/>
-      </div>
+      <component :is="element.type" :schema="element" :props="element" class="dark:bg-white"/>
     </template>
   </draggable>
 </template>

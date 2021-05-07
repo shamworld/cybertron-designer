@@ -11,6 +11,7 @@
         :list="list.list"
         :group="{ name: 'component', pull: 'clone', put: false }"
         :clone="insertWidget"
+        :sort="false"
         item-key="id"
       >
         <template #item="{ element }">
