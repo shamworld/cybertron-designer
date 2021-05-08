@@ -7,7 +7,7 @@
     @change="onchange"
   >
     <template #item="{ element }">
-      <component :is="element.type" :schema="element" :props="element" class="dark:bg-white"/>
+      <component :is="element.type" :schema="element" :props="element"/>
     </template>
   </draggable>
 </template>
@@ -77,4 +77,21 @@ const ContainerWidget = defineComponent({
 export default ContainerWidget;
 </script>
 
-<style scoped></style>
+<style scoped lang="less">
+  .selected {
+    position: relative;
+    :before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: 'container';
+      background-color: #396fff;
+      color: #fff;
+      font-size: 12px;
+      transform: scale(.5);
+    }
+    :after {
+
+    }
+  }
+</style>
