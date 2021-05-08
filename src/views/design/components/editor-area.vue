@@ -1,5 +1,5 @@
 <template>
-  <div class="w-375 h-812 dark:border border dark:border-border mx-auto my-20">
+  <div class="w-375 h-812 dark:border border dark:border-border mx-auto my-20 box-content">
     <container :schema="schema"></container>
   </div>
 </template>

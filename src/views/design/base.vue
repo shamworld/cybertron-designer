@@ -18,8 +18,9 @@ import ToolBar from './components/tool-bar.vue';
 import PanelArea from './components/panel-area.vue';
 import DesignerCanvas from './components/canvas.vue';
 import EditorArea from './components/editor-area.vue';
-import { getUUID } from 'ant-design-vue/es/vc-select/utils/commonUtil';
+import {getUUID} from 'ant-design-vue/es/vc-select/utils/commonUtil';
 import WidgetType from '@/enum/schema/widget-type.enum';
+import StyleValueUnit from '@/enum/style-value-unit';
 
 export default {
   name: 'base',
@@ -38,9 +39,18 @@ export default {
         name: '新建容器',
         desc: '新建容器，页面的根节点',
         props: {
-          style: {
-            backgroundColor: '#fff'
-          }
+          style: [
+            {
+              name: 'background-color',
+              value: '#fff',
+              unit: StyleValueUnit.none
+            },
+            {
+              name: 'min-height',
+              value: '812',
+              unit: StyleValueUnit.px
+            }
+          ]
         },
         children: []
       }

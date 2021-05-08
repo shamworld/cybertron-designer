@@ -1,7 +1,6 @@
 <template>
   <draggable
       class="border-border"
-      :style="schema.props.style"
       :list="data"
       group="component"
       item-key="id"

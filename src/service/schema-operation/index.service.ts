@@ -16,20 +16,20 @@ class SchemaService implements SchemaOperator {
         name: '容器',
         desc: '容器',
         props: {
-          styles: [
-            {
-              name: 'width',
-              value: 'auto',
-              unit: StyleValueUnit.none
-            },
+          style: [
             {
               name: 'min-height',
               value: 40,
               unit: StyleValueUnit.px
             },
             {
-              name: 'backgroundColor',
+              name: 'background-color',
               value: '#f00',
+              unit: StyleValueUnit.none
+            },
+            {
+              name: 'box-sizing',
+              value: 'border-box',
               unit: StyleValueUnit.none
             }
           ]
@@ -48,7 +48,7 @@ class SchemaService implements SchemaOperator {
             type: String,
             value: ''
           },
-          styles: [
+          style: [
             {
               name: 'width',
               value: 'auto',
@@ -98,7 +98,7 @@ class SchemaService implements SchemaOperator {
             type: String,
             value: ''
           },
-          styles: [
+          style: [
             {
               name: 'width',
               value: 'auto',
@@ -124,7 +124,7 @@ class SchemaService implements SchemaOperator {
             type: Array,
             value: []
           },
-          styles: []
+          style: []
         },
         children: []
       };

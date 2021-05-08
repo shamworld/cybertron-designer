@@ -2,7 +2,6 @@
   <draggable
     :list="data"
     :component-data="{style: curStyle}"
-    class="border border-border"
     group="component"
     item-key="id"
     @change="onchange"
@@ -65,7 +64,7 @@ const ContainerWidget = defineComponent({
   },
   computed: {
     curStyle() {
-      return convertSchemaToStyle(this.style);
+      return convertSchemaToStyle(this.schema.props.style);
     }
   },
   data() {
