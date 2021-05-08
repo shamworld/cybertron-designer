@@ -36,6 +36,7 @@ export default {
   },
   props: {},
   setup() {
+    // 需要存入 store
     return {
       schema: {
         id: getUUID(),
