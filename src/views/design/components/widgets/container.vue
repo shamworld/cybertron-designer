@@ -35,26 +35,6 @@ const ContainerWidget = defineComponent({
       default: {},
       required: true
     },
-    style: {
-      type: Array,
-      default: [
-        {
-          name: 'width',
-          value: 60,
-          unit: StyleValueUnit.px
-        },
-        {
-          name: 'height',
-          value: 40,
-          unit: StyleValueUnit.px
-        },
-        {
-          name: 'backgroundColor',
-          value: '#f00',
-          unit: StyleValueUnit.none
-        }
-      ]
-    }
   },
   methods: {
     onchange(data) {
