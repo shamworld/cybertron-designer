@@ -24,7 +24,7 @@ class SchemaService implements SchemaOperator {
             },
             {
               name: 'background-color',
-              value: '#f00',
+              value: '#fff',
               unit: StyleValueUnit.none
             },
             {
@@ -44,10 +44,7 @@ class SchemaService implements SchemaOperator {
         name: '文本',
         desc: '文本',
         props: {
-          data: {
-            type: String,
-            value: ''
-          },
+          data: '文本控件',
           style: [
             {
               name: 'width',
@@ -71,19 +68,14 @@ class SchemaService implements SchemaOperator {
             },
             {
               name: 'color',
-              value: '#f00',
-              unit: StyleValueUnit.none
-            },
-            {
-              name: 'textAlign',
-              value: 'center',
+              value: '#000',
               unit: StyleValueUnit.none
             }
           ]
         }
       };
     },
-    'img-widget': (data: { type: any }) => {
+    'image-widget': (data: { type: any }) => {
       return {
         id: uuid(),
         type: data.type,
