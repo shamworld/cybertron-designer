@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'box-model'
+  name: 'position'
 };
 </script>
 

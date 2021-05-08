@@ -1,10 +1,10 @@
 <template>
-
+  <div>event setting works!</div>
 </template>
 
 <script>
 export default {
-  name: 'color'
+  name: 'event-setting'
 };
 </script>
 

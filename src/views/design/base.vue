@@ -8,7 +8,9 @@
       <div class="flex-shrink-0 designer-canvas flex-grow">
         <editor-area :schema="schema"/>
       </div>
-      <div class="flex-shrink-0 form-panel w-240 border-l border-border"></div>
+      <div class="flex-shrink-0 form-panel w-240 border-l border-border">
+        <setting-area></setting-area>
+      </div>
     </section>
   </div>
 </template>
@@ -21,6 +23,7 @@ import EditorArea from './components/editor-area.vue';
 import {getUUID} from 'ant-design-vue/es/vc-select/utils/commonUtil';
 import WidgetType from '@/enum/schema/widget-type.enum';
 import StyleValueUnit from '@/enum/style-value-unit';
+import SettingArea from './components/setting-area/index.vue';
 
 export default {
   name: 'base',
@@ -28,6 +31,7 @@ export default {
     ToolBar,
     PanelArea,
     EditorArea,
+    SettingArea,
     DesignerCanvas
   },
   props: {},

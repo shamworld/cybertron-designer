@@ -1,10 +1,10 @@
 <template>
-
+  <div>data setting works!</div>
 </template>
 
 <script>
 export default {
-  name: 'transition'
+  name: 'data-setting'
 };
 </script>
 

@@ -1,10 +1,10 @@
 <template>
-
+  <div>props setting works!</div>
 </template>
 
 <script>
 export default {
-  name: 'positioning'
+  name: 'props-setting'
 };
 </script>
 
