@@ -1,0 +1,96 @@
+<template>
+  <draggable
+    :class="{ selected: selected }"
+    :component-data="{ style: curStyle, onClick: (e) => selectWidget(schema, e) }"
+    :list="data"
+    :data-id="schema.id"
+    group="component"
+    item-key="id"
+    @change="onchange"
+  >
+    <template #item="{ element }">
+      <component :is="element.type" :props="element" :schema="element" />
+    </template>
+  </draggable>
+</template>
+
+<script>
+import { defineComponent, ref } from 'vue';
+import { convertSchemaToStyle } from '@/util';
+import draggable from 'vuedraggable';
+import ImgWidget from './image.vue';
+import TextWidget from './text.vue';
+import ListWidget from './list.vue';
+import store from '@/store';
+
+const ContainerWidget = defineComponent({
+  name: 'container-widget',
+  components: {
+    draggable,
+    ImgWidget,
+    TextWidget,
+    ListWidget
+  },
+  props: {
+    schema: {
+      type: Object,
+      default: {},
+      required: true
+    },
+    selectedSchemaId: {
+      type: String,
+      default: ''
+    }
+  },
+  computed: {
+    curStyle() {
+      return convertSchemaToStyle(this.schema.props.style);
+    },
+    selected() {
+      // console.log("store.state.selectedSchema.id: ", store.state.selectedSchema.id);
+      // console.log("this.newAdded.id: ", this.newAdded.id);
+      return store.state.selectedSchema.id === this.schema.id;
+    }
+  },
+  methods: {
+    onchange(data) {
+      console.log('on change: ', this.schema.id);
+      this.newAdded = data.added.element;
+      store.commit('cacheWidget', this.newAdded);
+      this.selectWidget(this.newAdded);
+    },
+    selectWidget(widgetSchema, e) {
+      if (e) {
+        e.stopPropagation();
+      }
+      store.commit('selectWidget', widgetSchema);
+    }
+  },
+  data() {
+    return {
+      data: ref(this.schema.children),
+      newAdded: {}
+    };
+  }
+});
+
+export default ContainerWidget;
+</script>
+
+<style lang="less">
+.selected {
+  position: relative;
+  outline: 1px solid #396fff;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: 'container';
+    background-color: #396fff;
+    color: #fff;
+    font-size: 12px;
+    transform: scale(0.8);
+  }
+}
+</style>

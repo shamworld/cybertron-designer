@@ -29,7 +29,7 @@
       <div class="h-30 w-1/2 dark:bg-item-selected-bg m-4"></div>
     </li>
     <li class="flex items-center">
-      <span>列表项选中背景</span>
+      <span>文字背景</span>
       <div class="h-30 w-1/2 dark:bg-text m-4"></div>
     </li>
     <li class="flex items-center">

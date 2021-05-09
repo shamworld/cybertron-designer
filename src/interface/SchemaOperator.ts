@@ -3,11 +3,11 @@ import SchemaOperationPayload from '@/interface/schema-operation-payload'
 
 export default interface SchemaOperator {
   //  TODO: 等装好 schema 的 npm 包之后把 any 替换掉。
-  insert: (payload: SchemaOperationPayload) => any
+  insertWidget: (payload: SchemaOperationPayload) => any
   // TODO: 同上
-  update: (payload: SchemaOperationPayload) => any
+  updateWidget: (payload: SchemaOperationPayload) => any
   // TODO: 同上
-  delete: (payload: SchemaOperationPayload) => any
+  deleteWidget: (payload: SchemaOperationPayload) => any
   // TODO: 同上
-  move: (payload: SchemaOperationPayload) => any
+  moveWidget: (payload: SchemaOperationPayload) => any
 }
