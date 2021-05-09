@@ -24,6 +24,7 @@ import {getUUID} from 'ant-design-vue/es/vc-select/utils/commonUtil';
 import WidgetType from '@/enum/schema/widget-type.enum';
 import StyleValueUnit from '@/enum/style-value-unit';
 import SettingArea from './components/setting-area/index.vue';
+import store from '@/store';
 
 export default {
   name: 'base',
@@ -37,28 +38,30 @@ export default {
   props: {},
   setup() {
     // 需要存入 store
+    const schema = {
+      id: getUUID(),
+      type: WidgetType.container,
+      name: '新建容器',
+      desc: '新建容器，页面的根节点',
+      props: {
+        style: [
+          {
+            name: 'background-color',
+            value: '#fff',
+            unit: StyleValueUnit.none
+          },
+          {
+            name: 'min-height',
+            value: '812',
+            unit: StyleValueUnit.px
+          }
+        ]
+      },
+      children: []
+    };
+    store.commit('initPage', schema);
     return {
-      schema: {
-        id: getUUID(),
-        type: WidgetType.container,
-        name: '新建容器',
-        desc: '新建容器，页面的根节点',
-        props: {
-          style: [
-            {
-              name: 'background-color',
-              value: '#fff',
-              unit: StyleValueUnit.none
-            },
-            {
-              name: 'min-height',
-              value: '812',
-              unit: StyleValueUnit.px
-            }
-          ]
-        },
-        children: []
-      }
+      schema
     };
   }
 };
