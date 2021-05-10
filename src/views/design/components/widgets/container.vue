@@ -78,19 +78,5 @@ export default ContainerWidget;
 </script>
 
 <style lang="less">
-.selected {
-  position: relative;
-  outline: 1px solid #396fff;
 
-  &:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: 'container';
-    background-color: #396fff;
-    color: #fff;
-    font-size: 12px;
-    transform: scale(0.8);
-  }
-}
 </style>
