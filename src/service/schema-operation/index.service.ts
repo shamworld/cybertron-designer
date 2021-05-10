@@ -83,17 +83,17 @@ class SchemaService implements SchemaOperator {
           },
           alt: {
             type: String,
-            value: ''
+            value: '请配置图片'
           },
           style: [
             {
               name: 'width',
-              value: 'auto',
-              unit: StyleValueUnit.none
+              value: 100,
+              unit: StyleValueUnit.px
             },
             {
-              name: 'min-height',
-              value: 40,
+              name: 'height',
+              value: 100,
               unit: StyleValueUnit.px
             }
           ]
@@ -121,6 +121,21 @@ class SchemaService implements SchemaOperator {
         },
         children: []
       };
+    },
+    'input-widget': (data: { type: any }) => {
+      return {
+        id: uuid(),
+        type: data.type,
+        name: '输入框',
+        desc: '输入框',
+        props: {
+          data: {
+            type: String || Number,
+            value: ''
+          },
+          style: []
+        }
+      }
     }
   };
 

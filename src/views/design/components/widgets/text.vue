@@ -1,10 +1,11 @@
 <template>
-  <p :style="curStyle">{{ schema.props.data }}</p>
+  <p :style="curStyle" :class="{ selected }" @click="selectWidget">{{ schema.props.data }}</p>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
 import { convertSchemaToStyle } from '@/util';
+import store from '@/store';
 
 const TextWidget = defineComponent({
   name: 'text-widget',
@@ -12,16 +13,31 @@ const TextWidget = defineComponent({
     schema: {
       type: Object,
       required: true,
-      default: {},
+      default: {}
     }
   },
   computed: {
     curStyle() {
       return convertSchemaToStyle(this.schema.props.style);
+    },
+    selected() {
+      return store.state.selectedSchema.id === this.schema.id;
+    }
+  },
+  methods: {
+    selectWidget(e) {
+      e.stopPropagation();
+      store.commit('selectWidget', this.schema);
     }
   }
 });
 export default TextWidget;
 </script>
 
-<style scoped></style>
+<style lang="less" scoped>
+.selected {
+  &:before {
+    content: 'text'
+  }
+}
+</style>
