@@ -23,11 +23,6 @@ class SchemaService implements SchemaOperator {
               unit: StyleValueUnit.px
             },
             {
-              name: 'background-color',
-              value: '#fff',
-              unit: StyleValueUnit.none
-            },
-            {
               name: 'box-sizing',
               value: 'border-box',
               unit: StyleValueUnit.none
@@ -116,7 +111,13 @@ class SchemaService implements SchemaOperator {
             type: Array,
             value: []
           },
-          style: []
+          style: [
+            {
+              name: 'min-height',
+              value: 40,
+              unit: StyleValueUnit.px
+            }
+          ]
         },
         children: []
       };
