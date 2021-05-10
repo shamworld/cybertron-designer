@@ -77,14 +77,8 @@ class SchemaService implements SchemaOperator {
         name: '图片',
         desc: '图片',
         props: {
-          url: {
-            type: String,
-            value: ''
-          },
-          alt: {
-            type: String,
-            value: '请配置图片'
-          },
+          url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2118613132,1080069599&fm=26&gp=0.jpg',
+          alt: '请配置图片',
           style: [
             {
               name: 'width',
