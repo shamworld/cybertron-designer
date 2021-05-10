@@ -8,7 +8,7 @@
       <div class="flex-shrink-0 designer-canvas flex-grow">
         <editor-area :schema="schema"/>
       </div>
-      <div class="flex-shrink-0 form-panel w-240 border-l border-border">
+      <div class="flex-shrink-0 form-panel border-l border-border">
         <setting-area></setting-area>
       </div>
     </section>
