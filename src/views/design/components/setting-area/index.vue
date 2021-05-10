@@ -1,5 +1,5 @@
 <template>
-  <a-tabs :active-key(v-model)="activeKey">
+  <a-tabs type="card" :active-key(v-model)="activeKey">
     <a-tab-pane key="1" tab="样式">
       <style-setting></style-setting>
     </a-tab-pane>
