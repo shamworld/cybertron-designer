@@ -140,7 +140,10 @@ class SchemaService implements SchemaOperator {
   };
 
   insertWidget(data: { type: string }): any {
-    return SchemaService.widgetGenerationDict[data.type](data);
+    if (SchemaService.widgetGenerationDict[data.type]) {
+      return SchemaService.widgetGenerationDict[data.type](data);
+    }
+    console.error(`${data.type} not found`);
   }
 
   deleteWidget(payload: SchemaOperationPayload): any {}
