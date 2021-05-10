@@ -18,7 +18,6 @@
 <script lang="ts">
 import ToolBar from './components/tool-bar.vue';
 import PanelArea from './components/panel-area.vue';
-import DesignerCanvas from './components/canvas.vue';
 import EditorArea from './components/editor-area.vue';
 import {getUUID} from 'ant-design-vue/es/vc-select/utils/commonUtil';
 import WidgetType from '@/enum/schema/widget-type.enum';
@@ -33,7 +32,6 @@ export default {
     PanelArea,
     EditorArea,
     SettingArea,
-    DesignerCanvas
   },
   props: {},
   setup() {
