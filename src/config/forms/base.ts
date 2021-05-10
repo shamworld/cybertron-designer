@@ -4,11 +4,6 @@
 
 const baseFormConfig = [
   {
-    name: '尺寸',
-    desc: '盒模型',
-    type: 'box-model-setting'
-  },
-  {
     name: '定位',
     desc: '在页面中放在哪个位置',
     type: 'position-setting',
