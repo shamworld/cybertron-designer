@@ -1,6 +1,8 @@
 <template>
-  <a-collapse>
-    <a-collapse-panel></a-collapse-panel>
+  <a-collapse :activeKey(v-model)="activeKey">
+    <a-collapse-panel key="1" header="边框">
+
+    </a-collapse-panel>
   </a-collapse>
 </template>
 
@@ -9,6 +11,7 @@ export default {
   name: 'border-setting',
   data() {
     return {
+      activeKey: '1',
       style: {
         borderTop: {
           type: String,

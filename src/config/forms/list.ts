@@ -4,6 +4,11 @@
 import baseFormConfig from '@/config/forms/base';
 import FormConfig from '@/interface/front-end/form-config';
 
-const listFormConfig: FormConfig[]  = [...baseFormConfig];
+const listFormConfig: FormConfig[]  = [
+  baseFormConfig['layout-setting'],
+  baseFormConfig['border-setting'],
+  baseFormConfig['position-setting'],
+  baseFormConfig['visual-effect-setting'],
+];
 
 export default listFormConfig;

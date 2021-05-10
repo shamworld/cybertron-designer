@@ -1,6 +1,6 @@
 <template>
   <a-collapse :activeKey(v-model)="activeKey">
-    <a-collapse-panel key="1" header="尺寸与盒模型">
+    <a-collapse-panel key="1" header="布局">
 
     </a-collapse-panel>
   </a-collapse>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'layout',
+  name: 'layout-setting',
   data() {
     return {
       activeKey: '1',

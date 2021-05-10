@@ -1,5 +1,10 @@
 import StyleSchema from '@/interface/schema/style.schema';
 import DynamicObject from '@/interface/dynamic-object';
+import containerFormConfig from '@/config/forms/container';
+import imgFormConfig from '@/config/forms/img';
+import listFormConfig from '@/config/forms/list';
+import textFormConfig from '@/config/forms/text';
+import FormConfig from '@/interface/front-end/form-config';
 
 export function convertSchemaToStyle(styleSchema: StyleSchema[]) {
   return styleSchema.reduce(
@@ -9,4 +14,14 @@ export function convertSchemaToStyle(styleSchema: StyleSchema[]) {
     },
     {}
   );
+}
+
+export function getFormConfig(widgetType: string): FormConfig[] {
+  const dict: DynamicObject = {
+    'container-widget': containerFormConfig,
+    'image-widget': imgFormConfig,
+    'list-widget': listFormConfig,
+    'text-widget': textFormConfig,
+  };
+  return dict[widgetType];
 }
