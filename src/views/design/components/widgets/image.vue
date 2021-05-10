@@ -36,6 +36,13 @@ export default ImgWidget;
 
 </script>
 
-<style scoped>
+<style scoped lang="less">
+@import 'src/style/mixin';
 
+.selected {
+  .selected();
+  &:before {
+    content: '图片';
+  }
+}
 </style>

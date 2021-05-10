@@ -35,9 +35,12 @@ export default TextWidget;
 </script>
 
 <style lang="less" scoped>
+@import 'src/style/mixin';
+
 .selected {
+  .selected();
   &:before {
-    content: 'text'
+    content: '文本'
   }
 }
 </style>

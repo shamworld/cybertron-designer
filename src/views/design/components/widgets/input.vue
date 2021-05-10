@@ -1,10 +1,10 @@
 <template>
-  <input :style="curStyle" :value="data">
+  <input :style="curStyle" :value="data" />
 </template>
 
 <script>
 import { defineComponent } from 'vue';
-import {convertSchemaToStyle} from '@/util';
+import { convertSchemaToStyle } from '@/util';
 import store from '@/store';
 
 const InputWidget = defineComponent({
@@ -35,4 +35,13 @@ const InputWidget = defineComponent({
 export default InputWidget;
 </script>
 
-<style scoped></style>
+<style scoped lang="less">
+@import 'src/style/mixin';
+
+.selected {
+  .selected();
+  &:before {
+    content: '输入框';
+  }
+}
+</style>

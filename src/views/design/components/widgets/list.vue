@@ -35,4 +35,13 @@ const ListWidget = defineComponent({
 export default ListWidget;
 </script>
 
-<style scoped></style>
+<style scoped lang="less">
+@import 'src/style/mixin';
+
+.selected {
+  .selected();
+  &:before {
+    content: '列表';
+  }
+}
+</style>
