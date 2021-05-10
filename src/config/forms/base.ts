@@ -1,8 +1,9 @@
 /*
  * @file 描述容器需要的表单属性
  */
+import FormConfig from '@/interface/front-end/form-config';
 
-const baseFormConfig = [
+const baseFormConfig: FormConfig[] = [
   {
     name: '定位',
     desc: '在页面中放在哪个位置',
