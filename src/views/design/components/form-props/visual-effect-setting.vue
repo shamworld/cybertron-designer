@@ -1,6 +1,6 @@
 <template>
   <a-collapse :activeKey(v-model)="activeKey">
-    <a-collapse-panel key="1" header="定位">
+    <a-collapse-panel key="1" header="视觉效果">
 
     </a-collapse-panel>
   </a-collapse>
