@@ -1,10 +1,10 @@
 <template>
   <a-collapse :activeKey(v-model)="activeKey">
     <a-collapse-panel key="1" header="定位">
-      <a-form :label-col="labelCol" :model="layoutStyle" :wrapper-col="wrapperCol">
+      <a-form :label-col="labelCol" :model="positionStyle" :wrapper-col="wrapperCol">
         <a-form-item label="定位">
           <div class="flex flex-shrink-0">
-            <a-select v-model:value="layoutStyle.position.value">
+            <a-select v-model:value="positionStyle.position.value">
               <a-select-option value="static">默认</a-select-option>
               <a-select-option value="relative">相对定位</a-select-option>
               <a-select-option value="absolute">绝对定位</a-select-option>
@@ -33,7 +33,7 @@ export default {
       wrapperCol: {
         span: 12
       },
-      layoutStyle: {
+      positionStyle: {
         position: {
           type: Positioning,
           value: Positioning.static,

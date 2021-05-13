@@ -1,32 +1,32 @@
 <template>
   <a-collapse :activeKey(v-model)="activeKey">
     <a-collapse-panel key="1" header="字体">
-      <a-form :label-col="labelCol" :model="layoutStyle" :wrapper-col="wrapperCol">
+      <a-form :label-col="labelCol" :model="fontStyle" :wrapper-col="wrapperCol">
         <a-form-item label="颜色">
           <div class="flex flex-shrink-0">
-            <a-input v-model:value="layoutStyle.color.value"></a-input>
-            <span class="mx-10"> {{ layoutStyle.color.unit }}</span>
+            <a-input v-model:value="fontStyle.color.value"></a-input>
+            <span class="mx-10"> {{ fontStyle.color.unit }}</span>
           </div>
         </a-form-item>
         <a-form-item label="字号">
           <div class="flex flex-shrink-0">
-            <a-input v-model:value="layoutStyle.fontSize.value"></a-input>
-            <span class="mx-10"> {{ layoutStyle.fontSize.unit }}</span>
+            <a-input v-model:value="fontStyle.fontSize.value"></a-input>
+            <span class="mx-10"> {{ fontStyle.fontSize.unit }}</span>
           </div>
         </a-form-item>
         <a-form-item label="行高">
           <div class="flex flex-shrink-0">
-            <a-input v-model:value="layoutStyle.lineHeight.value"></a-input>
-            <span class="mx-10"> {{ layoutStyle.lineHeight.unit }}</span>
+            <a-input v-model:value="fontStyle.lineHeight.value"></a-input>
+            <span class="mx-10"> {{ fontStyle.lineHeight.unit }}</span>
           </div>
         </a-form-item>
         <a-form-item label="加粗">
           <div class="flex flex-shrink-0">
-            <a-switch v-model:value="layoutStyle.fontWeight.value"></a-switch>
+            <a-switch v-model:value="fontStyle.fontWeight.value"></a-switch>
           </div>
         </a-form-item>
         <a-form-item label="字体">
-          <a-select v-model:value="layoutStyle.fontFamily.value">
+          <a-select v-model:value="fontStyle.fontFamily.value">
             <a-select-option value="Microsoft YaHei">微软雅黑</a-select-option>
             <a-select-option value="PingFangSC-Regular">苹方-简 常规</a-select-option>
             <a-select-option value="Helvetica">Helvetica</a-select-option>
@@ -51,7 +51,7 @@ export default {
       wrapperCol: {
         span: 12
       },
-      layoutStyle: {
+      fontStyle: {
         fontFamily: {
           type: String,
           value: 'Microsoft YaHei',
