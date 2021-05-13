@@ -1,6 +1,6 @@
 <template>
   <a-collapse :activeKey(v-model)="activeKey">
-    <a-collapse-panel key="1" header="布局">
+    <a-collapse-panel key="1" header="盒模型">
       <a-form :label-col="labelCol" :model="boxModelStyle" :wrapper-col="wrapperCol">
         <a-form-item label="宽度">
           <div class="flex flex-shrink-0">

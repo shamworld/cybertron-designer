@@ -14,6 +14,11 @@ const baseFormConfig: { [key: string]: FormConfig } = {
     desc: '该容器内的元素将如何排布',
     type: 'layout-setting'
   },
+  'box-model-setting': {
+    name: '盒模型',
+    desc: '改元素的大小、内外边距',
+    type: 'box-model-setting'
+  },
   'visual-effect-setting': {
     name: '视觉效果',
     desc: '背景色、阴影、动画、过渡等',

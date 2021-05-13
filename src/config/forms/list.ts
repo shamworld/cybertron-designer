@@ -6,6 +6,7 @@ import FormConfig from '@/interface/front-end/form-config';
 
 const listFormConfig: FormConfig[]  = [
   baseFormConfig['layout-setting'],
+  baseFormConfig['box-model-setting'],
   baseFormConfig['border-setting'],
   baseFormConfig['position-setting'],
   baseFormConfig['visual-effect-setting'],
