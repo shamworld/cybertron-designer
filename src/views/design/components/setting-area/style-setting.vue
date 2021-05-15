@@ -1,6 +1,6 @@
 <template>
   <template v-if="widgetType">
-    <component v-for="item in settingList" :is="item.type"></component>
+    <component v-for="item in settingList" :is="item.type" :style="schema.props.style"></component>
   </template>
   <div v-else>请选择组件</div>
 </template>
@@ -25,12 +25,15 @@ export default {
     VisualEffectSetting
   },
   props: {
-    widgetType: {
-      type: String,
-      default: ''
-    },
+    schema: {
+      type: Object,
+      required: true
+    }
   },
   computed: {
+    widgetType() {
+      return this.schema.type;
+    },
     settingList() {
       return getFormConfig(this.widgetType);
     }

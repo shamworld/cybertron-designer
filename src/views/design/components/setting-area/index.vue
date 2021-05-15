@@ -1,7 +1,7 @@
 <template>
   <a-tabs type="card" :active-key(v-model)="activeKey">
     <a-tab-pane key="1" tab="样式">
-      <style-setting :widget-type="widgetType"></style-setting>
+      <style-setting :schema="schema"></style-setting>
     </a-tab-pane>
     <a-tab-pane key="2" tab="属性">
       <props-setting></props-setting>
@@ -26,8 +26,8 @@ export default {
   name: 'setting-area',
   components: { DataSetting, EventSetting, StyleSetting, PropsSetting },
   computed: {
-    widgetType() {
-      return store.state.selectedSchema.type;
+    schema() {
+      return store.state.selectedSchema;
     }
   },
   data() {

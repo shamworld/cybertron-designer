@@ -84,16 +84,10 @@ import StyleValueUnit from '@/enum/style-value-unit';
 
 export default {
   name: 'box-model-setting',
-  data() {
-    return {
-      activeKey: '1',
-      labelCol: {
-        span: 8
-      },
-      wrapperCol: {
-        span: 12
-      },
-      boxModelStyle: {
+  props: {
+    style: {
+      type: Object,
+      default: {
         marginTop: {
           type: Number,
           value: 0,
@@ -155,6 +149,17 @@ export default {
           unit: StyleValueUnit.px
         }
       }
+    }
+  },
+  data() {
+    return {
+      activeKey: '1',
+      labelCol: {
+        span: 8
+      },
+      wrapperCol: {
+        span: 12
+      },
     };
   }
 };
