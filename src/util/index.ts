@@ -7,9 +7,10 @@ import textFormConfig from '@/config/forms/text';
 import FormConfig from '@/interface/front-end/form-config';
 
 export function convertSchemaToStyle(styleSchema: StyleSchema[]) {
-  return styleSchema.reduce(
+  return Object.values(styleSchema).reduce(
     (accumulator: DynamicObject, curVal) => {
-      accumulator[curVal.name] = `${curVal.value}${curVal.unit}`;
+      const key = hyphensToCamel(curVal.name);
+      accumulator[key] = `${curVal.value}${curVal.unit}`;
       return accumulator;
     },
     {}

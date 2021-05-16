@@ -16,18 +16,18 @@ class SchemaService implements SchemaOperator {
         name: '容器',
         desc: '容器',
         props: {
-          style: [
-            {
+          style: {
+            minHeight: {
               name: 'min-height',
               value: 40,
               unit: StyleValueUnit.px
             },
-            {
+            boxSizing: {
               name: 'box-sizing',
               value: 'border-box',
               unit: StyleValueUnit.none
             }
-          ]
+          }
         },
         children: []
       };
@@ -40,33 +40,33 @@ class SchemaService implements SchemaOperator {
         desc: '文本',
         props: {
           data: '文本控件',
-          style: [
-            {
+          style: {
+            width: {
               name: 'width',
               value: 'auto',
               unit: StyleValueUnit.none
             },
-            {
+            height: {
               name: 'height',
               value: 20,
               unit: StyleValueUnit.px
             },
-            {
-              name: 'fontWeight',
+            fontWeight: {
+              name: 'font-weight',
               value: 600,
               unit: StyleValueUnit.none
             },
-            {
-              name: 'lineHeight',
+            lineHeight: {
+              name: 'line-height',
               value: 20,
               unit: StyleValueUnit.px
             },
-            {
+            color: {
               name: 'color',
               value: '#000',
               unit: StyleValueUnit.none
             }
-          ]
+          }
         }
       };
     },
@@ -79,18 +79,18 @@ class SchemaService implements SchemaOperator {
         props: {
           url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2118613132,1080069599&fm=26&gp=0.jpg',
           alt: '请配置图片',
-          style: [
-            {
+          style: {
+            width: {
               name: 'width',
               value: 100,
               unit: StyleValueUnit.px
             },
-            {
+            height: {
               name: 'height',
               value: 100,
               unit: StyleValueUnit.px
             }
-          ]
+          }
         }
       };
     },
@@ -105,13 +105,13 @@ class SchemaService implements SchemaOperator {
             type: Array,
             value: []
           },
-          style: [
-            {
+          style: {
+            minHeight: {
               name: 'min-height',
               value: 40,
               unit: StyleValueUnit.px
             }
-          ]
+          }
         },
         children: []
       };
@@ -127,9 +127,9 @@ class SchemaService implements SchemaOperator {
             type: String || Number,
             value: ''
           },
-          style: []
+          style: {}
         }
-      }
+      };
     }
   };
 
