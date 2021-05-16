@@ -1,5 +1,4 @@
 <template>
-  {{ style }}
   <a-collapse :activeKey(v-model)="activeKey">
     <a-collapse-panel key="1" header="边框">
       <a-form :label-col="labelCol" :model="style" :wrapper-col="wrapperCol">

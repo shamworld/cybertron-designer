@@ -17,6 +17,61 @@ class SchemaService implements SchemaOperator {
         desc: '容器',
         props: {
           style: {
+            marginTop: {
+              name: 'margin-top',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            marginRight: {
+              name: 'margin-right',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            marginBottom: {
+              name: 'margin-bottom',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            marginLeft: {
+              name: 'margin-left',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            paddingTop: {
+              name: 'padding-top',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            paddingRight: {
+              name: 'padding-right',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            paddingBottom: {
+              name: 'padding-bottom',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            paddingLeft: {
+              name: 'padding-left',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            width: {
+              name: 'width',
+              value: 'auto',
+              unit: StyleValueUnit.px
+            },
+            height: {
+              name: 'height',
+              value: 'auto',
+              unit: StyleValueUnit.px
+            },
+            minWidth: {
+              name: 'min-width',
+              value: 'auto',
+              unit: StyleValueUnit.px
+            },
             minHeight: {
               name: 'min-height',
               value: 40,
@@ -25,6 +80,31 @@ class SchemaService implements SchemaOperator {
             boxSizing: {
               name: 'box-sizing',
               value: 'border-box',
+              unit: StyleValueUnit.none
+            },
+            borderTop: {
+              name: 'border-top',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            borderRight: {
+              name: 'border-right',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            borderBottom: {
+              name: 'border-bottom',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            borderLeft: {
+              name: 'border-left',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            position: {
+              name: 'position',
+              value: 'static',
               unit: StyleValueUnit.none
             }
           }
@@ -65,6 +145,11 @@ class SchemaService implements SchemaOperator {
               name: 'color',
               value: '#000',
               unit: StyleValueUnit.none
+            },
+            position: {
+              name: 'position',
+              value: 'static',
+              unit: StyleValueUnit.none
             }
           }
         }
@@ -89,6 +174,11 @@ class SchemaService implements SchemaOperator {
               name: 'height',
               value: 100,
               unit: StyleValueUnit.px
+            },
+            position: {
+              name: 'position',
+              value: 'static',
+              unit: StyleValueUnit.none
             }
           }
         }
@@ -110,6 +200,11 @@ class SchemaService implements SchemaOperator {
               name: 'min-height',
               value: 40,
               unit: StyleValueUnit.px
+            },
+            position: {
+              name: 'position',
+              value: 'static',
+              unit: StyleValueUnit.none
             }
           }
         },
@@ -127,7 +222,13 @@ class SchemaService implements SchemaOperator {
             type: String || Number,
             value: ''
           },
-          style: {}
+          style: {
+            position: {
+              name: 'position',
+              value: 'static',
+              unit: StyleValueUnit.none
+            }
+          }
         }
       };
     }
