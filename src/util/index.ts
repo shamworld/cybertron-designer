@@ -25,3 +25,17 @@ export function getFormConfig(widgetType: string): FormConfig[] {
   };
   return dict[widgetType];
 }
+
+/*
+ * 连字符属性转为驼峰
+ */
+export function hyphensToCamel(name: string) {
+  return name.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+}
+
+/*
+ * 驼峰转为连字符
+ */
+export function camelToHyphens(name: string) {
+  return name.replace(/([A-Z])/g, (g) => `-${g.toLowerCase()}`);
+}
