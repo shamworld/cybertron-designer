@@ -6,6 +6,7 @@ import SchemaOperator from '@/interface/SchemaOperator';
 import SchemaOperationPayload from '@/interface/schema-operation-payload';
 import StyleValueUnit from '@/enum/style-value-unit';
 import DynamicObject from '@/interface/dynamic-object';
+import Layout from '@/enum/layout';
 
 class SchemaService implements SchemaOperator {
   static widgetGenerationDict: DynamicObject = {
@@ -17,6 +18,11 @@ class SchemaService implements SchemaOperator {
         desc: '容器',
         props: {
           style: {
+            display: {
+              name: 'display',
+              value: Layout.block,
+              unit: StyleValueUnit.none
+            },
             marginTop: {
               name: 'margin-top',
               value: 0,
@@ -196,6 +202,11 @@ class SchemaService implements SchemaOperator {
             value: []
           },
           style: {
+            display: {
+              name: 'display',
+              value: Layout.block,
+              unit: StyleValueUnit.none
+            },
             minHeight: {
               name: 'min-height',
               value: 40,

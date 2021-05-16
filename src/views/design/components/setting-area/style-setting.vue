@@ -30,6 +30,11 @@ export default {
       required: true
     }
   },
+  watch: {
+    schema() {
+      console.log('changed: ', this.schema.props.style);
+    }
+  },
   computed: {
     widgetType() {
       return this.schema.type;

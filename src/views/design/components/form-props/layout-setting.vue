@@ -1,8 +1,8 @@
 <template>
   <a-collapse :activeKey(v-model)="activeKey">
-    <a-collapse-panel key="1" header="定位">
+    <a-collapse-panel key="1" header="布局">
       <a-form :label-col="labelCol" :model="style" :wrapper-col="wrapperCol">
-        <a-form-item label="定位">
+        <a-form-item label="布局">
           <div class="flex flex-shrink-0">
             <a-select v-model:value="style.display.value">
               <a-select-option value="block">默认</a-select-option>
