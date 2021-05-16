@@ -18,7 +18,7 @@
 import { defineComponent, ref } from 'vue';
 import { convertSchemaToStyle } from '@/util';
 import draggable from 'vuedraggable';
-import ImgWidget from './image.vue';
+import ImageWidget from './image.vue';
 import TextWidget from './text.vue';
 import ListWidget from './list.vue';
 import store from '@/store';
@@ -27,7 +27,7 @@ const ContainerWidget = defineComponent({
   name: 'container-widget',
   components: {
     draggable,
-    ImgWidget,
+    ImageWidget,
     TextWidget,
     ListWidget
   },
@@ -78,19 +78,12 @@ export default ContainerWidget;
 </script>
 
 <style lang="less">
-.selected {
-  position: relative;
-  outline: 1px solid #396fff;
+@import 'src/style/mixin';
 
+.selected {
+  .selected();
   &:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: 'container';
-    background-color: #396fff;
-    color: #fff;
-    font-size: 12px;
-    transform: scale(0.8);
+    content: '容器';
   }
 }
 </style>

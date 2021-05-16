@@ -23,11 +23,6 @@ class SchemaService implements SchemaOperator {
               unit: StyleValueUnit.px
             },
             {
-              name: 'background-color',
-              value: '#fff',
-              unit: StyleValueUnit.none
-            },
-            {
               name: 'box-sizing',
               value: 'border-box',
               unit: StyleValueUnit.none
@@ -82,23 +77,17 @@ class SchemaService implements SchemaOperator {
         name: '图片',
         desc: '图片',
         props: {
-          url: {
-            type: String,
-            value: ''
-          },
-          alt: {
-            type: String,
-            value: ''
-          },
+          url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2118613132,1080069599&fm=26&gp=0.jpg',
+          alt: '请配置图片',
           style: [
             {
               name: 'width',
-              value: 'auto',
-              unit: StyleValueUnit.none
+              value: 100,
+              unit: StyleValueUnit.px
             },
             {
-              name: 'min-height',
-              value: 40,
+              name: 'height',
+              value: 100,
               unit: StyleValueUnit.px
             }
           ]
@@ -116,15 +105,39 @@ class SchemaService implements SchemaOperator {
             type: Array,
             value: []
           },
-          style: []
+          style: [
+            {
+              name: 'min-height',
+              value: 40,
+              unit: StyleValueUnit.px
+            }
+          ]
         },
         children: []
       };
+    },
+    'input-widget': (data: { type: any }) => {
+      return {
+        id: uuid(),
+        type: data.type,
+        name: '输入框',
+        desc: '输入框',
+        props: {
+          data: {
+            type: String || Number,
+            value: ''
+          },
+          style: []
+        }
+      }
     }
   };
 
   insertWidget(data: { type: string }): any {
-    return SchemaService.widgetGenerationDict[data.type](data);
+    if (SchemaService.widgetGenerationDict[data.type]) {
+      return SchemaService.widgetGenerationDict[data.type](data);
+    }
+    console.error(`${data.type} not found`);
   }
 
   deleteWidget(payload: SchemaOperationPayload): any {}
