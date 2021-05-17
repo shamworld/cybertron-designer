@@ -152,6 +152,11 @@ class SchemaService implements SchemaOperator {
               value: 20,
               unit: StyleValueUnit.px
             },
+            fontFamily: {
+              name: 'font-family',
+              value: 'Microsoft YaHei',
+              unit: StyleValueUnit.px,
+            },
             fontSize: {
               name: 'font-size',
               value: 12,
