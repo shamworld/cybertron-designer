@@ -1,18 +1,18 @@
 <template>
   <template v-if="widgetType">
-    <component v-for="item in settingList" :is="item.type" :style="schema.props.style"></component>
+    <component :is="item.type" v-for="item in settingList" :style="schema.props.style"></component>
   </template>
   <div v-else>请选择组件</div>
 </template>
 
 <script>
-import {getFormConfig} from '@/util';
+import { getFormConfig } from '@/util';
 import LayoutSetting from '@/views/design/components/form-props/layout-setting.vue';
 import PositionSetting from '@/views/design/components/form-props/position-setting.vue';
 import BoxModelSetting from '@/views/design/components/form-props/box-model-setting.vue';
 import FontSetting from '@/views/design/components/form-props/font-setting.vue';
 import BorderSetting from '@/views/design/components/form-props/border-setting.vue';
-import VisualEffectSetting from '@/views/design/components/form-props/visual-effect-setting.vue'
+import VisualEffectSetting from '@/views/design/components/form-props/visual-effect-setting.vue';
 
 export default {
   name: 'style-setting',
@@ -30,11 +30,6 @@ export default {
       required: true
     }
   },
-  watch: {
-    schema() {
-      console.log('changed: ', this.schema.props.style);
-    }
-  },
   computed: {
     widgetType() {
       return this.schema.type;
@@ -46,6 +41,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

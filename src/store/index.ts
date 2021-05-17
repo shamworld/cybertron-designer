@@ -16,8 +16,6 @@ const store = createStore({
   } as StoreState,
   mutations: {
     initPage(state, payload: WidgetSchema) {
-      console.log('state: ', state);
-      console.log('payload: ', payload);
       const { schemaDict } = state;
       let q = [payload];
       while(q.length) {
@@ -33,11 +31,9 @@ const store = createStore({
       schemaDict[payload.id] = payload;
     },
     insertWidget(state, payload: WidgetSchema) {
-      console.log('insert widget: ', state);
     },
     updateWidget(state) {},
     deleteWidget(state) {
-      console.log('delete widget: ', state);
     },
     moveWidget(state) {
       this.deleteWidget(state);

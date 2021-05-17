@@ -33,9 +33,6 @@ export default {
       }
     }
   },
-  beforeMount() {
-    console.log(this.style);
-  },
   data() {
     return {
       activeKey: '1',
