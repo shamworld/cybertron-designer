@@ -112,6 +112,21 @@ class SchemaService implements SchemaOperator {
               name: 'position',
               value: 'static',
               unit: StyleValueUnit.none
+            },
+            boxShadow: {
+              name: '阴影',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            transition: {
+              name: '过渡',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            animation: {
+              name: '动画',
+              value: '',
+              unit: StyleValueUnit.none
             }
           }
         },
@@ -137,6 +152,11 @@ class SchemaService implements SchemaOperator {
               value: 20,
               unit: StyleValueUnit.px
             },
+            fontSize: {
+              name: 'font-size',
+              value: 12,
+              unit: StyleValueUnit.px
+            },
             fontWeight: {
               name: 'font-weight',
               value: 600,
@@ -155,6 +175,21 @@ class SchemaService implements SchemaOperator {
             position: {
               name: 'position',
               value: 'static',
+              unit: StyleValueUnit.none
+            },
+            boxShadow: {
+              name: '阴影',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            transition: {
+              name: '过渡',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            animation: {
+              name: '动画',
+              value: '',
               unit: StyleValueUnit.none
             }
           }
@@ -184,6 +219,21 @@ class SchemaService implements SchemaOperator {
             position: {
               name: 'position',
               value: 'static',
+              unit: StyleValueUnit.none
+            },
+            boxShadow: {
+              name: '阴影',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            transition: {
+              name: '过渡',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            animation: {
+              name: '动画',
+              value: '',
               unit: StyleValueUnit.none
             }
           }
@@ -216,6 +266,21 @@ class SchemaService implements SchemaOperator {
               name: 'position',
               value: 'static',
               unit: StyleValueUnit.none
+            },
+            boxShadow: {
+              name: '阴影',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            transition: {
+              name: '过渡',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            animation: {
+              name: '动画',
+              value: '',
+              unit: StyleValueUnit.none
             }
           }
         },
@@ -237,6 +302,21 @@ class SchemaService implements SchemaOperator {
             position: {
               name: 'position',
               value: 'static',
+              unit: StyleValueUnit.none
+            },
+            boxShadow: {
+              name: '阴影',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            transition: {
+              name: '过渡',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            animation: {
+              name: '动画',
+              value: '',
               unit: StyleValueUnit.none
             }
           }
