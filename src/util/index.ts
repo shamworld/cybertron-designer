@@ -5,6 +5,7 @@ import imgFormConfig from '@/config/forms/img';
 import listFormConfig from '@/config/forms/list';
 import textFormConfig from '@/config/forms/text';
 import FormConfig from '@/interface/front-end/form-config';
+import pageFormConfig from '@/config/forms/page';
 
 export function convertSchemaToStyle(styleSchema: StyleSchema[]) {
   return Object.values(styleSchema).reduce(
@@ -19,6 +20,7 @@ export function convertSchemaToStyle(styleSchema: StyleSchema[]) {
 
 export function getFormConfig(widgetType: string): FormConfig[] {
   const dict: DynamicObject = {
+    'page': pageFormConfig,
     'container-widget': containerFormConfig,
     'image-widget': imgFormConfig,
     'list-widget': listFormConfig,

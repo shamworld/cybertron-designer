@@ -13,6 +13,7 @@ import BoxModelSetting from '@/views/design/components/form-props/box-model-sett
 import FontSetting from '@/views/design/components/form-props/font-setting.vue';
 import BorderSetting from '@/views/design/components/form-props/border-setting.vue';
 import VisualEffectSetting from '@/views/design/components/form-props/visual-effect-setting.vue';
+import PageStyleSetting from '@/views/design/components/form-props/page-style-setting.vue';
 
 export default {
   name: 'style-setting',
@@ -22,7 +23,8 @@ export default {
     PositionSetting,
     FontSetting,
     BorderSetting,
-    VisualEffectSetting
+    VisualEffectSetting,
+    PageStyleSetting,
   },
   props: {
     schema: {
