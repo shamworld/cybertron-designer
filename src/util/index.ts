@@ -5,11 +5,13 @@ import imgFormConfig from '@/config/forms/img';
 import listFormConfig from '@/config/forms/list';
 import textFormConfig from '@/config/forms/text';
 import FormConfig from '@/interface/front-end/form-config';
+import pageFormConfig from '@/config/forms/page';
 
 export function convertSchemaToStyle(styleSchema: StyleSchema[]) {
-  return styleSchema.reduce(
+  return Object.values(styleSchema).reduce(
     (accumulator: DynamicObject, curVal) => {
-      accumulator[curVal.name] = `${curVal.value}${curVal.unit}`;
+      const key = hyphensToCamel(curVal.name);
+      accumulator[key] = `${curVal.value}${curVal.unit}`;
       return accumulator;
     },
     {}
@@ -18,10 +20,25 @@ export function convertSchemaToStyle(styleSchema: StyleSchema[]) {
 
 export function getFormConfig(widgetType: string): FormConfig[] {
   const dict: DynamicObject = {
+    'page': pageFormConfig,
     'container-widget': containerFormConfig,
     'image-widget': imgFormConfig,
     'list-widget': listFormConfig,
     'text-widget': textFormConfig,
   };
   return dict[widgetType];
+}
+
+/*
+ * 连字符属性转为驼峰
+ */
+export function hyphensToCamel(name: string) {
+  return name.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+}
+
+/*
+ * 驼峰转为连字符
+ */
+export function camelToHyphens(name: string) {
+  return name.replace(/([A-Z])/g, (g) => `-${g.toLowerCase()}`);
 }

@@ -4,6 +4,11 @@
 import FormConfig from '@/interface/front-end/form-config';
 
 const baseFormConfig: { [key: string]: FormConfig } = {
+  'page-style-setting': {
+    name: '页面',
+    desc: '页面的整体设置',
+    type: 'page-style-setting'
+  },
   'position-setting': {
     name: '定位',
     desc: '在页面中放在哪个位置',

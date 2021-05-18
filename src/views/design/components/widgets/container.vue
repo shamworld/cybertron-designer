@@ -47,14 +47,11 @@ const ContainerWidget = defineComponent({
       return convertSchemaToStyle(this.schema.props.style);
     },
     selected() {
-      // console.log("store.state.selectedSchema.id: ", store.state.selectedSchema.id);
-      // console.log("this.newAdded.id: ", this.newAdded.id);
       return store.state.selectedSchema.id === this.schema.id;
     }
   },
   methods: {
     onchange(data) {
-      console.log('on change: ', this.schema.id);
       this.newAdded = data.added.element;
       store.commit('cacheWidget', this.newAdded);
       this.selectWidget(this.newAdded);

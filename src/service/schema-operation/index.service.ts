@@ -6,6 +6,7 @@ import SchemaOperator from '@/interface/SchemaOperator';
 import SchemaOperationPayload from '@/interface/schema-operation-payload';
 import StyleValueUnit from '@/enum/style-value-unit';
 import DynamicObject from '@/interface/dynamic-object';
+import Layout from '@/enum/layout';
 
 class SchemaService implements SchemaOperator {
   static widgetGenerationDict: DynamicObject = {
@@ -16,18 +17,118 @@ class SchemaService implements SchemaOperator {
         name: '容器',
         desc: '容器',
         props: {
-          style: [
-            {
+          style: {
+            display: {
+              name: 'display',
+              value: Layout.block,
+              unit: StyleValueUnit.none
+            },
+            marginTop: {
+              name: 'margin-top',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            marginRight: {
+              name: 'margin-right',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            marginBottom: {
+              name: 'margin-bottom',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            marginLeft: {
+              name: 'margin-left',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            paddingTop: {
+              name: 'padding-top',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            paddingRight: {
+              name: 'padding-right',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            paddingBottom: {
+              name: 'padding-bottom',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            paddingLeft: {
+              name: 'padding-left',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            width: {
+              name: 'width',
+              value: 'auto',
+              unit: StyleValueUnit.px
+            },
+            height: {
+              name: 'height',
+              value: 'auto',
+              unit: StyleValueUnit.px
+            },
+            minWidth: {
+              name: 'min-width',
+              value: 'auto',
+              unit: StyleValueUnit.px
+            },
+            minHeight: {
               name: 'min-height',
               value: 40,
               unit: StyleValueUnit.px
             },
-            {
+            boxSizing: {
               name: 'box-sizing',
               value: 'border-box',
               unit: StyleValueUnit.none
+            },
+            borderTop: {
+              name: 'border-top',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            borderRight: {
+              name: 'border-right',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            borderBottom: {
+              name: 'border-bottom',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            borderLeft: {
+              name: 'border-left',
+              value: 0,
+              unit: StyleValueUnit.px
+            },
+            position: {
+              name: 'position',
+              value: 'static',
+              unit: StyleValueUnit.none
+            },
+            boxShadow: {
+              name: '阴影',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            transition: {
+              name: '过渡',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            animation: {
+              name: '动画',
+              value: '',
+              unit: StyleValueUnit.none
             }
-          ]
+          }
         },
         children: []
       };
@@ -40,33 +141,63 @@ class SchemaService implements SchemaOperator {
         desc: '文本',
         props: {
           data: '文本控件',
-          style: [
-            {
+          style: {
+            width: {
               name: 'width',
               value: 'auto',
               unit: StyleValueUnit.none
             },
-            {
+            height: {
               name: 'height',
               value: 20,
               unit: StyleValueUnit.px
             },
-            {
-              name: 'fontWeight',
+            fontFamily: {
+              name: 'font-family',
+              value: 'Microsoft YaHei',
+              unit: StyleValueUnit.px,
+            },
+            fontSize: {
+              name: 'font-size',
+              value: 12,
+              unit: StyleValueUnit.px
+            },
+            fontWeight: {
+              name: 'font-weight',
               value: 600,
               unit: StyleValueUnit.none
             },
-            {
-              name: 'lineHeight',
+            lineHeight: {
+              name: 'line-height',
               value: 20,
               unit: StyleValueUnit.px
             },
-            {
+            color: {
               name: 'color',
               value: '#000',
               unit: StyleValueUnit.none
+            },
+            position: {
+              name: 'position',
+              value: 'static',
+              unit: StyleValueUnit.none
+            },
+            boxShadow: {
+              name: '阴影',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            transition: {
+              name: '过渡',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            animation: {
+              name: '动画',
+              value: '',
+              unit: StyleValueUnit.none
             }
-          ]
+          }
         }
       };
     },
@@ -79,18 +210,38 @@ class SchemaService implements SchemaOperator {
         props: {
           url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2118613132,1080069599&fm=26&gp=0.jpg',
           alt: '请配置图片',
-          style: [
-            {
+          style: {
+            width: {
               name: 'width',
               value: 100,
               unit: StyleValueUnit.px
             },
-            {
+            height: {
               name: 'height',
               value: 100,
               unit: StyleValueUnit.px
+            },
+            position: {
+              name: 'position',
+              value: 'static',
+              unit: StyleValueUnit.none
+            },
+            boxShadow: {
+              name: '阴影',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            transition: {
+              name: '过渡',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            animation: {
+              name: '动画',
+              value: '',
+              unit: StyleValueUnit.none
             }
-          ]
+          }
         }
       };
     },
@@ -105,13 +256,38 @@ class SchemaService implements SchemaOperator {
             type: Array,
             value: []
           },
-          style: [
-            {
+          style: {
+            display: {
+              name: 'display',
+              value: Layout.block,
+              unit: StyleValueUnit.none
+            },
+            minHeight: {
               name: 'min-height',
               value: 40,
               unit: StyleValueUnit.px
+            },
+            position: {
+              name: 'position',
+              value: 'static',
+              unit: StyleValueUnit.none
+            },
+            boxShadow: {
+              name: '阴影',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            transition: {
+              name: '过渡',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            animation: {
+              name: '动画',
+              value: '',
+              unit: StyleValueUnit.none
             }
-          ]
+          }
         },
         children: []
       };
@@ -127,9 +303,30 @@ class SchemaService implements SchemaOperator {
             type: String || Number,
             value: ''
           },
-          style: []
+          style: {
+            position: {
+              name: 'position',
+              value: 'static',
+              unit: StyleValueUnit.none
+            },
+            boxShadow: {
+              name: '阴影',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            transition: {
+              name: '过渡',
+              value: '',
+              unit: StyleValueUnit.none
+            },
+            animation: {
+              name: '动画',
+              value: '',
+              unit: StyleValueUnit.none
+            }
+          }
         }
-      }
+      };
     }
   };
 

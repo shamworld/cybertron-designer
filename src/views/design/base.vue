@@ -6,7 +6,7 @@
         <panel-area class="h-full"></panel-area>
       </div>
       <div class="flex-shrink-0 designer-canvas flex-grow">
-        <editor-area :schema="schema"/>
+        <editor-area :schema="schema" />
       </div>
       <div class="flex-shrink-0 form-panel border-l border-border">
         <setting-area></setting-area>
@@ -19,11 +19,12 @@
 import ToolBar from './components/tool-bar.vue';
 import PanelArea from './components/panel-area.vue';
 import EditorArea from './components/editor-area.vue';
-import {getUUID} from 'ant-design-vue/es/vc-select/utils/commonUtil';
-import WidgetType from '@/enum/schema/widget-type.enum';
-import StyleValueUnit from '@/enum/style-value-unit';
+import { v4 as uuid } from 'uuid';
 import SettingArea from './components/setting-area/index.vue';
 import store from '@/store';
+import PageSchema from '@/interface/schema/page.schema';
+import SchemaService from '@/service/schema-operation/index.service';
+import StyleValueUnit from '@/enum/style-value-unit';
 
 export default {
   name: 'base',
@@ -31,32 +32,53 @@ export default {
     ToolBar,
     PanelArea,
     EditorArea,
-    SettingArea,
+    SettingArea
   },
   props: {},
   setup() {
     // 需要存入 store
-    const schema = {
-      id: getUUID(),
-      type: WidgetType.container,
-      name: '新建容器',
-      desc: '新建容器，页面的根节点',
+    const schema: PageSchema = {
+      id: uuid(),
+      name: '页面',
+      desc: '页面',
+      type: 'page',
       props: {
-        style: [
-          {
-            name: 'background-color',
-            value: '#fff',
-            unit: StyleValueUnit.none
+        style: {
+          width: {
+            name: 'width',
+            value: 375,
+            unit: StyleValueUnit.px,
           },
-          {
-            name: 'min-height',
-            value: '812',
+          height: {
+            name: 'height',
+            value: 812,
             unit: StyleValueUnit.px
           }
-        ]
-      },
-      children: []
+        },
+        route: '',
+        // 运行期间读取和写入的
+        localStorage: {
+          read: {},
+          write: {}
+        },
+        query: {
+          read: {},
+          write: {}
+        },
+        // 页面用到的接口
+        httpApi: [],
+        // 发送事件给 native
+        nativeEvent: {},
+        // 接收 native 事件
+        nativeMessage: {},
+        // 页面的运行时状态 ( 包括远端数据 )
+        state: {},
+        // 页面内的交互事件
+        events: {},
+        widgetSchema: SchemaService.insertWidget({ type: 'container-widget' })
+      }
     };
+    console.log('page schema: ', schema);
     store.commit('initPage', schema);
     return {
       schema
