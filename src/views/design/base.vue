@@ -25,6 +25,7 @@ import store from '@/store';
 import PageSchema from '@/interface/schema/page.schema';
 import SchemaService from '@/service/schema-operation/index.service';
 import StyleValueUnit from '@/enum/style-value-unit';
+import { Ref, ref } from 'vue';
 
 export default {
   name: 'base',
@@ -37,7 +38,7 @@ export default {
   props: {},
   setup() {
     // 需要存入 store
-    const schema: PageSchema = {
+    const schema: Ref<PageSchema> = ref({
       id: uuid(),
       name: '页面',
       desc: '页面',
@@ -47,7 +48,7 @@ export default {
           width: {
             name: 'width',
             value: 375,
-            unit: StyleValueUnit.px,
+            unit: StyleValueUnit.px
           },
           height: {
             name: 'height',
@@ -77,7 +78,7 @@ export default {
         events: {},
         widgetSchema: SchemaService.insertWidget({ type: 'container-widget' })
       }
-    };
+    });
     console.log('page schema: ', schema);
     store.commit('initPage', schema);
     return {
