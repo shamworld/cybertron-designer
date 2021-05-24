@@ -1,0 +1,38 @@
+<template>
+    <component :is="tag" v-bind="$attrs">
+        <slot></slot>
+        <template v-for="(_, slot) of $slots" v-slot:[slot]="scope">
+            <slot :name="slot" v-bind="scope"/>
+        </template>
+    </component>
+</template>
+
+<script lang="ts">
+    import {Options, Prop} from "vue-property-decorator";
+    import DragAwareMixin from "../mixins/DragAwareMixin";
+    import {dnd} from "../ts/DnD";
+
+    @Options({})
+    export default class DropMask extends DragAwareMixin {
+
+        isDropMask = true;
+
+        @Prop({default: 'div', type: [String, Object,Function]})
+        tag: any;
+
+        mounted() {
+            let el = this.$el;
+            let comp = this;
+            el.addEventListener('easy-dnd-move', onMouseMove);
+
+            function onMouseMove(e) {
+                dnd.mouseMove(e, comp);
+            }
+        }
+
+        createDragImage() {
+            return 'source';
+        }
+
+    }
+</script>

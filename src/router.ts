@@ -2,6 +2,7 @@ import Home from '@/views/Home.vue'
 import DesignBase from '@/views/design/base.vue'
 import ManagementBase from '@/views/management/base.vue'
 import ColorSpecification from '@/views/color-specification.vue'
+import Playground from '@/views/playground/index.vue';
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
@@ -30,6 +31,11 @@ const routes = [
     path: '/color-specification',
     name: 'ColorSpecification',
     component: ColorSpecification
+  },
+  {
+    path: '/playground',
+    name: 'Playground',
+    component: Playground,
   }
 ]
 

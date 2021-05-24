@@ -1,14 +1,15 @@
 <template>
   <draggable
-    :class="{ selected: selected }"
-    :component-data="{ style: curStyle, onClick: (e) => selectWidget(schema, e) }"
+    class="debug"
+    :class="{ selected: selected, debug: true }"
+    :style="curStyle"
+    :onClick="(e) => selectWidget(schema, e)"
     :list="data"
-    :data-id="schema.id"
-    group="component"
+    :group="{ name: 'component'}"
     item-key="id"
     @change="onchange"
   >
-    <template #item="{ element }">
+    <template class="debug" v-for="element in data">
       <component :is="element.type" :props="element" :schema="element" />
     </template>
   </draggable>
@@ -17,7 +18,7 @@
 <script>
 import { defineComponent, ref } from 'vue';
 import { convertSchemaToStyle } from '@/util';
-import draggable from 'vuedraggable';
+import { VueDraggableNext as draggable } from 'vue-draggable-next';
 import ImageWidget from './image.vue';
 import TextWidget from './text.vue';
 import ListWidget from './list.vue';
@@ -82,5 +83,9 @@ export default ContainerWidget;
   &:before {
     content: '容器';
   }
+}
+
+.debug {
+  background-color: #f00;
 }
 </style>
