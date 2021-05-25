@@ -113,18 +113,23 @@ class SchemaService implements SchemaOperator {
               value: 'static',
               unit: StyleValueUnit.none
             },
+            background: {
+              name: 'background',
+              value: '#fff',
+              unit: StyleValueUnit.none
+            },
             boxShadow: {
-              name: '阴影',
+              name: 'box-shadow',
               value: '',
               unit: StyleValueUnit.none
             },
             transition: {
-              name: '过渡',
+              name: 'transition',
               value: '',
               unit: StyleValueUnit.none
             },
             animation: {
-              name: '动画',
+              name: 'animation',
               value: '',
               unit: StyleValueUnit.none
             }
@@ -183,17 +188,17 @@ class SchemaService implements SchemaOperator {
               unit: StyleValueUnit.none
             },
             boxShadow: {
-              name: '阴影',
+              name: 'box-shadow',
               value: '',
               unit: StyleValueUnit.none
             },
             transition: {
-              name: '过渡',
+              name: 'transition',
               value: '',
               unit: StyleValueUnit.none
             },
             animation: {
-              name: '动画',
+              name: 'animation',
               value: '',
               unit: StyleValueUnit.none
             }
@@ -227,17 +232,17 @@ class SchemaService implements SchemaOperator {
               unit: StyleValueUnit.none
             },
             boxShadow: {
-              name: '阴影',
+              name: 'box-shadow',
               value: '',
               unit: StyleValueUnit.none
             },
             transition: {
-              name: '过渡',
+              name: 'transition',
               value: '',
               unit: StyleValueUnit.none
             },
             animation: {
-              name: '动画',
+              name: 'animation',
               value: '',
               unit: StyleValueUnit.none
             }
@@ -273,17 +278,17 @@ class SchemaService implements SchemaOperator {
               unit: StyleValueUnit.none
             },
             boxShadow: {
-              name: '阴影',
+              name: 'box-shadow',
               value: '',
               unit: StyleValueUnit.none
             },
             transition: {
-              name: '过渡',
+              name: 'transition',
               value: '',
               unit: StyleValueUnit.none
             },
             animation: {
-              name: '动画',
+              name: 'animation',
               value: '',
               unit: StyleValueUnit.none
             }
@@ -310,17 +315,17 @@ class SchemaService implements SchemaOperator {
               unit: StyleValueUnit.none
             },
             boxShadow: {
-              name: '阴影',
+              name: 'box-shadow',
               value: '',
               unit: StyleValueUnit.none
             },
             transition: {
-              name: '过渡',
+              name: 'transition',
               value: '',
               unit: StyleValueUnit.none
             },
             animation: {
-              name: '动画',
+              name: 'animation',
               value: '',
               unit: StyleValueUnit.none
             }
