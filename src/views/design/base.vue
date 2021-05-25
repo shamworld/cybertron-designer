@@ -23,9 +23,9 @@ import { v4 as uuid } from 'uuid';
 import SettingArea from './components/setting-area/index.vue';
 import store from '@/store';
 import PageSchema from '@/interface/schema/page.schema';
-import SchemaService from '@/service/schema-operation/index.service';
 import StyleValueUnit from '@/enum/style-value-unit';
 import { Ref, ref } from 'vue';
+import WidgetType from '@/enum/schema/widget-type.enum';
 
 export default {
   name: 'base',
@@ -42,7 +42,7 @@ export default {
       id: uuid(),
       name: '页面',
       desc: '页面',
-      type: 'page',
+      type: WidgetType.page,
       props: {
         style: {
           width: {
@@ -76,8 +76,8 @@ export default {
         state: {},
         // 页面内的交互事件
         events: {},
-        widgetSchema: SchemaService.insertWidget({ type: 'container-widget' })
-      }
+      },
+      children: [],
     });
     console.log('page schema: ', schema);
     store.commit('initPage', schema);

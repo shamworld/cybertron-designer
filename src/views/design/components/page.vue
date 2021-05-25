@@ -1,21 +1,36 @@
 <template>
-  <div :class="{ selected }" @click.stop="selectWidget" :data-type="schema.type" :style="curStyle">
-    <container-widget :schema="schema.props.widgetSchema"></container-widget>
-  </div>
+  <draggable
+    :class="{ selected: selected }"
+    :component-data="{ style: curStyle, onClick: (e) => selectWidget(schema, e) }"
+    :list="data"
+    :data-id="schema.id"
+    group="component"
+    item-key="id"
+    @change="onchange"
+  >
+    <template #item="{ element }">
+      <component :is="element.type" :props="element" :schema="element" />
+    </template>
+  </draggable>
 </template>
 
-<script lang="ts">
+<script>
+import draggable from 'vuedraggable';
 import ContainerWidget from './widgets/container.vue';
 import store from '@/store';
 import {convertSchemaToStyle} from '@/util';
+import {ref} from 'vue';
 export default {
   name: 'page',
-  components: {ContainerWidget},
+  components: {ContainerWidget, draggable},
   props: {
     schema: {
       type: Object,
       required: true,
     }
+  },
+  mounted() {
+    console.log('page: ', this.schema);
   },
   computed: {
     curStyle() {
@@ -26,8 +41,22 @@ export default {
     }
   },
   methods: {
-    selectWidget() {
-      store.commit('selectWidget', this.schema);
+    onchange(data) {
+      this.newAdded = data.added.element;
+      store.commit('cacheWidget', this.newAdded);
+      this.selectWidget(this.newAdded);
+    },
+    selectWidget(widgetSchema, e) {
+      if (e) {
+        e.stopPropagation();
+      }
+      store.commit('selectWidget', widgetSchema);
+    }
+  },
+  data() {
+    return {
+      data: ref(this.schema.children),
+      newAdded: {}
     }
   }
 };
