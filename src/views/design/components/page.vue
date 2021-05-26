@@ -38,9 +38,6 @@ export default {
       required: true,
     }
   },
-  mounted() {
-    console.log('page: ', this.schema);
-  },
   computed: {
     curStyle() {
       return convertSchemaToStyle(this.schema.props.style);
