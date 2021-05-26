@@ -3,17 +3,19 @@ import DynamicObject from '@/interface/dynamic-object';
 import EventSchema from '@/interface/schema/event.schema';
 import HttpRequest from '@/interface/http-request';
 import StyleValueUnit from '@/enum/style-value-unit';
+import ContainerSchema from '@/interface/schema/widget/container.schema';
+import WidgetType from '@/enum/schema/widget-type.enum';
 
 export interface HttpRequestOption {
   header: DynamicObject;
   [key: string]: any;
 }
 
-export default interface PageSchema {
+export default interface PageSchema extends ContainerSchema {
   // 页面 id （32位 uuid）
   id: string;
   name: string;
-  type: string;
+  type: WidgetType;
   desc: string;
   props: {
     style: {
@@ -56,6 +58,6 @@ export default interface PageSchema {
       // TODO 问题很大，还没有想清楚
       [key: string]: EventSchema;
     };
-    widgetSchema: WidgetSchema;
   };
+  children: WidgetSchema[];
 }

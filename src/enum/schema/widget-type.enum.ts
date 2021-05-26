@@ -1,4 +1,5 @@
 enum WidgetType {
+  page = 'page-widget',
   container = 'container-widget',
   text = 'txt-widget',
   link = 'link-widget',

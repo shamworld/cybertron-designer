@@ -2,6 +2,11 @@
   <a-collapse :activeKey(v-model)="activeKey">
     <a-collapse-panel key="1" header="视觉效果">
       <a-form :label-col="labelCol" :model="style" :wrapper-col="wrapperCol">
+        <a-form-item label="背景">
+          <div class="flex flex-shrink-0">
+            <a-input v-model:value="style.background.value"></a-input>
+          </div>
+        </a-form-item>
         <a-form-item label="阴影">
           <div class="flex flex-shrink-0">
             <a-input v-model:value="style.boxShadow.value"></a-input>
