@@ -7,13 +7,13 @@
 
 <script>
 import { getFormConfig } from '@/util';
-import LayoutSetting from '@/views/design/components/form-props/layout-setting.vue';
-import PositionSetting from '@/views/design/components/form-props/position-setting.vue';
-import BoxModelSetting from '@/views/design/components/form-props/box-model-setting.vue';
-import FontSetting from '@/views/design/components/form-props/font-setting.vue';
-import BorderSetting from '@/views/design/components/form-props/border-setting.vue';
-import VisualEffectSetting from '@/views/design/components/form-props/visual-effect-setting.vue';
-import PageStyleSetting from '@/views/design/components/form-props/page-style-setting.vue';
+import LayoutSetting from '@/views/design/components/style-forms/layout-setting.vue';
+import PositionSetting from '@/views/design/components/style-forms/position-setting.vue';
+import BoxModelSetting from '@/views/design/components/style-forms/box-model-setting.vue';
+import FontSetting from '@/views/design/components/style-forms/font-setting.vue';
+import BorderSetting from '@/views/design/components/style-forms/border-setting.vue';
+import VisualEffectSetting from '@/views/design/components/style-forms/visual-effect-setting.vue';
+import PageStyleSetting from '@/views/design/components/style-forms/page-style-setting.vue';
 
 export default {
   name: 'style-setting',
