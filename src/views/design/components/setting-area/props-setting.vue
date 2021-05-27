@@ -37,7 +37,7 @@ export default {
           }
         ]
       }
-    ] as DataSourceSchema[]);
+    ]);
     return {
       data,
     };
