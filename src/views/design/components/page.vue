@@ -20,17 +20,23 @@ import ContainerWidget from './widgets/container.vue';
 import store from '@/store';
 import {convertSchemaToStyle} from '@/util';
 import {ref} from 'vue';
+import ImageWidget from '@/views/design/components/widgets/image.vue';
+import TextWidget from '@/views/design/components/widgets/text.vue';
+import ListWidget from '@/views/design/components/widgets/list.vue';
 export default {
   name: 'page',
-  components: {ContainerWidget, draggable},
+  components: {
+    ContainerWidget,
+    draggable,
+    ImageWidget,
+    TextWidget,
+    ListWidget
+  },
   props: {
     schema: {
       type: Object,
       required: true,
     }
-  },
-  mounted() {
-    console.log('page: ', this.schema);
   },
   computed: {
     curStyle() {
