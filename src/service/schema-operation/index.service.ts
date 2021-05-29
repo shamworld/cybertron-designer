@@ -5,8 +5,8 @@ import { v4 as uuid } from 'uuid';
 import SchemaOperator from '@/interface/SchemaOperator';
 import SchemaOperationPayload from '@/interface/schema-operation-payload';
 import StyleValueUnit from '@/enum/style-value-unit';
-import DynamicObject from '@/interface/dynamic-object';
 import Layout from '@/enum/layout';
+import DynamicObject from '@/interface/dynamic-object';
 
 const borderStyle = {
   borderTop: {
