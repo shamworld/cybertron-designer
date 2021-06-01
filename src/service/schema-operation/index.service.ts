@@ -316,11 +316,17 @@ class SchemaService implements SchemaOperator {
     console.error(`${data.type} not found`);
   }
 
-  deleteWidget(payload: SchemaOperationPayload): any {}
+  deleteWidget(payload: SchemaOperationPayload): any {
+    console.log('payload: ', payload);
+  }
 
-  moveWidget(payload: SchemaOperationPayload): any {}
+  moveWidget(payload: SchemaOperationPayload): any {
+    console.log('payload: ', payload);
+  }
 
-  updateWidget(payload: SchemaOperationPayload): any {}
+  updateWidget(payload: SchemaOperationPayload): any {
+    console.log('payload: ', payload);
+  }
 }
 
 export default new SchemaService();

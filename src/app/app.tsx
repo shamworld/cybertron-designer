@@ -2,12 +2,8 @@ import React, { ComponentClass, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { routeConfig } from '@/router';
 
-import * as styles from './app.module.less';
-import Home from '@/views/home';
-import Design from '@/views/design';
-
 // const LazyStrawberryIcon = lazy(() => import('./strawberry'));
-export const App = (): React.ReactElement => {
+const App = (): React.ReactElement => {
   const routerTpl = routeConfig.map((item) => {
     const Cmp: ComponentClass = item.component as ComponentClass;
     return (
@@ -19,7 +15,7 @@ export const App = (): React.ReactElement => {
     );
   });
   return (
-    <div className={styles.stylesContainer}>
+    <div>
       <Router>
         <Switch>
           {routerTpl}
@@ -31,3 +27,5 @@ export const App = (): React.ReactElement => {
     </div>
   )
 };
+
+export default App;
