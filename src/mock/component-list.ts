@@ -1,4 +1,6 @@
-const mockComponentList = [
+import { IComponentList } from '@/types/templateProps'
+
+const mockComponentList: Array<IComponentList> = [
   {
     type: 1,
     typeName: '通用',
@@ -46,7 +48,7 @@ const mockComponentList = [
         icon: 'BuildOutlined'
       },
       {
-        id: 3,
+        id: 2,
         name: '列表',
         type: 'list',
         icon: 'BuildOutlined'
