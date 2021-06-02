@@ -8,7 +8,7 @@ const gData = [];
 
 // TODO 待接入数据、不过地址地方不用慌
 
-const generateData = (_level, _preKey, _tns) => {
+const generateData = (_level, _preKey = '', _tns = null) => {
     const preKey = _preKey || '0';
     const tns = _tns || gData;
 
