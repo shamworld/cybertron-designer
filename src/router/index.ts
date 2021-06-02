@@ -1,21 +1,23 @@
 import Design from "@/views/design";
 import Home from "@/views/home";
 import NotFound from "@/views/not-found";
-import { ComponentClass } from "react";
+import Layout from '@/views/layout'
+import { ReactNode } from "react";
 
 interface RouteConfig {
   path: string;
   name: string;
   redirect?: string;
-  component?: ComponentClass;
+  component?: ReactNode;
 }
 
 export const routeConfig: RouteConfig[] = [
   {
     path: '/',
     name: '首页',
-    redirect: '/home'
+    component: Layout,
   },
+
   {
     path: '/home',
     name: '首页',
