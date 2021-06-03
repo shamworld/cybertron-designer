@@ -15,7 +15,7 @@ export const routeConfig: RouteConfig[] = [
   {
     path: '/',
     name: '首页',
-    component: Layout,
+    redirect: '/home'
   },
 
   {
