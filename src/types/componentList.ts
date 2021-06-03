@@ -7,7 +7,7 @@ export interface IComponentList {
 
 /** 具体每个组件的信息 */
 export interface ITemplateProps {
-    id: number;
+    id: string;
     name: string;
     type: string;
     icon: string;

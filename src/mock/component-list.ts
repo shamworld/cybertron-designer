@@ -1,4 +1,5 @@
-import { IComponentList } from '@/types/templateProps'
+import { v4 as uuidv4 } from 'uuid'
+import { IComponentList } from '@/types/componentList'
 
 const mockComponentList: Array<IComponentList> = [
   {
@@ -6,25 +7,25 @@ const mockComponentList: Array<IComponentList> = [
     typeName: '通用',
     list: [
       {
-        id: 0,
+        id: uuidv4(),
         name: '容器',
-        type: 'container-widget',
+        type: 'ContainerWidget', // ContainerWidget ro container-widget
         icon: 'BuildOutlined'
       },
       {
-        id: 1,
+        id: uuidv4(),
         name: '文本',
         type: 'text-widget',
         icon: 'BuildOutlined'
       },
       {
-        id: 2,
+        id: uuidv4(),
         name: '图片',
         type: 'image-widget',
         icon: 'BuildOutlined'
       },
       {
-        id: 3,
+        id: uuidv4(),
         name: '列表',
         type: 'list-widget',
         icon: 'BuildOutlined'
@@ -36,25 +37,25 @@ const mockComponentList: Array<IComponentList> = [
     typeName: '自定义',
     list: [
       {
-        id: 0,
+        id: uuidv4(),
         name: '列表',
         type: 'list',
         icon: 'BuildOutlined'
       },
       {
-        id: 1,
+        id: uuidv4(),
         name: '列表',
         type: 'list',
         icon: 'BuildOutlined'
       },
       {
-        id: 2,
+        id: uuidv4(),
         name: '列表',
         type: 'list',
         icon: 'BuildOutlined'
       },
       {
-        id: 3,
+        id: uuidv4(),
         name: '列表',
         type: 'list',
         icon: 'BuildOutlined'

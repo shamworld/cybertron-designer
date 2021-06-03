@@ -13,14 +13,15 @@ const mockComponentData: Array<IComponentData> = [
             backgroundColor: "green"
         }
     },
-    // {
-    //     id: uuidv4(),
-    //     name: "H1组件",
-    //     type: "H1",
-    //     props: {
-    //         color: 'green'
-    //     }
-    // },
+    {
+        id: uuidv4(),
+        name: "文本组件",
+        type: "TextWidget",
+        props: {
+            color: 'green',
+            text: "文本组件",
+        }
+    },
     {
         id: uuidv4(),
         name: "Button组件",

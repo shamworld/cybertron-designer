@@ -6,7 +6,7 @@ export interface IComponentData {
     /** 组件名 */
     name?: string;
     /** 组件属性 详情见 defaultProps */
-    props: {
+    props?: {
         [key: string]: any
     }
 }
