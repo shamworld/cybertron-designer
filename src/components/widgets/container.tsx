@@ -1,11 +1,11 @@
 import React from 'react'
+import {TextComponentProps} from "@/types/defaultProps"
 
-// TODO 
 // props 属性待整合
-const ContainerWidget = (props) => {
+const ContainerWidget= (props) => {        
     const { text, ...restProps } = props
     return (
-        <div {...restProps} style={{ width: 100, height: 100 }}>
+        <div style={...restProps}>
             {text}
         </div>
     )

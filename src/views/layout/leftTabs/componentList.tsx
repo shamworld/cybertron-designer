@@ -1,35 +1,42 @@
-import React from 'react'
-import { ITemplateProps } from '@/types/componentList'
-import { useRecoilState } from 'recoil'
-import { getComponentData } from '@/store/atorms/global'
-import { v4 as uuidv4 } from 'uuid'
+import React, { FC } from 'react';
+import { ITemplateProps } from '@/types/componentList';
+import { useRecoilState } from 'recoil';
+import { getComponentData } from '@/store/atorms/global';
+import { v4 as uuidv4 } from 'uuid';
 
-import styles from './index.less'
+import styles from './index.less';
 interface IProps {
-    list: Array<ITemplateProps>;
+  list: ITemplateProps[];
 }
 
-const ComponentList = (props: IProps) => {
-    const [componentData, setComponentData] = useRecoilState(getComponentData);
-    const addComponentData = (item: ITemplateProps) => {
-        let newcomponentData = [...componentData]
-        const newItem = { ...item }
-        newItem.id = uuidv4()
-        console.log(newItem.id );
-    
-        newcomponentData.push(item)
-        setComponentData(newcomponentData)
-    }
-    return (
-        <div className={styles.componentList}>
-            {
-                props.list.map((item: ITemplateProps) => (
-                    <div key={item.id} className={styles.name} onClick={() => addComponentData(item)}>
-                        {item.name}
-                    </div>
-                ))
-            }
+const ComponentList: FC<IProps> = (props) => {
+  const [componentData, setComponentData] = useRecoilState(getComponentData);
+  const addComponentData = (item: ITemplateProps) => {
+    const styles = item.props;
+    let newcomponentData = [...componentData];
+    const newItem: ITemplateProps = {
+      id: uuidv4(),
+      name: item.name,
+      type: item.type,
+      props: {
+        ...styles,
+      },
+    };
+    newcomponentData.push(newItem);
+    setComponentData(newcomponentData);
+  };
+  return (
+    <div className={styles.componentList}>
+      {props.list.map((item: ITemplateProps) => (
+        <div
+          key={item.id}
+          className={styles.name}
+          onClick={() => addComponentData(item)}
+        >
+          {item.name}
         </div>
-    )
-}
-export default ComponentList
+      ))}
+    </div>
+  );
+};
+export default ComponentList;

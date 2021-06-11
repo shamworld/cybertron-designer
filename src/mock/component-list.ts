@@ -1,5 +1,6 @@
-import { v4 as uuidv4 } from 'uuid'
-import { IComponentList } from '@/types/componentList'
+import {v4 as uuidv4} from 'uuid';
+import {IComponentList} from '@/types/componentList';
+import {commonDefaultProps, textDefaultProps} from '@/types/defaultProps';
 
 const mockComponentList: Array<IComponentList> = [
   {
@@ -9,28 +10,34 @@ const mockComponentList: Array<IComponentList> = [
       {
         id: uuidv4(),
         name: '容器',
-        type: 'ContainerWidget', // ContainerWidget ro container-widget
-        icon: 'BuildOutlined'
+        type: 'container-widget', // ContainerWidget ro container-widget
+        icon: 'BuildOutlined',
+        props: {
+          ...commonDefaultProps,
+        },
       },
       {
         id: uuidv4(),
         name: '文本',
         type: 'text-widget',
-        icon: 'BuildOutlined'
+        icon: 'BuildOutlined',
+        props: {
+          ...textDefaultProps,
+        },
       },
       {
         id: uuidv4(),
         name: '图片',
         type: 'image-widget',
-        icon: 'BuildOutlined'
+        icon: 'BuildOutlined',
       },
       {
         id: uuidv4(),
         name: '列表',
         type: 'list-widget',
-        icon: 'BuildOutlined'
-      }
-    ]
+        icon: 'BuildOutlined',
+      },
+    ],
   },
   {
     type: 2,
@@ -40,33 +47,33 @@ const mockComponentList: Array<IComponentList> = [
         id: uuidv4(),
         name: '列表',
         type: 'list',
-        icon: 'BuildOutlined'
+        icon: 'BuildOutlined',
       },
       {
         id: uuidv4(),
         name: '列表',
         type: 'list',
-        icon: 'BuildOutlined'
+        icon: 'BuildOutlined',
       },
       {
         id: uuidv4(),
         name: '列表',
         type: 'list',
-        icon: 'BuildOutlined'
+        icon: 'BuildOutlined',
       },
       {
         id: uuidv4(),
         name: '列表',
         type: 'list',
-        icon: 'BuildOutlined'
-      }
-    ]
+        icon: 'BuildOutlined',
+      },
+    ],
   },
   {
     type: 3,
     typeName: '第三方',
-    list: []
-  }
+    list: [],
+  },
 ];
 
 export default mockComponentList;
