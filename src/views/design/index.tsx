@@ -70,13 +70,13 @@ export default class Design extends Component<{}, DesignState> {
           <ToolBar />
         </section>
         <section className={style.body} >
-          <div className='flex-shrink-0 component-panel border-border'>
+          <div className={style.left}>
             <PanelArea />
           </div>
-          <div className='flex-shrink-0 designer-canvas flex-grow'>
+          <div className={style.center}>
             <EditorArea schema={schema} />
           </div>
-          <div className='flex-shrink-0 form-panel border-l border-border'>
+          <div className={style.right}>
             <SettingArea />
           </div>
         </section>

@@ -1,5 +1,9 @@
 @height: 60px;
 
+.no-shrink {
+  flex-shrink: 0;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -10,12 +14,24 @@
   border-bottom: 1px solid #a3a8b8;
   height: @height;
   flex-basis: @height;
-  flex-shrink: 0;
+  .no-shrink();
 }
 
 .body {
   display: flex;
   flex-basis: cal(100vh - @height);
-  flex-shrink: 0;
+  .no-shrink();
   flex-grow: 1;
+  .left {
+    .no-shrink();
+    flex-basis: 300px;
+  }
+  .center {
+    .no-shrink();
+    flex-grow: 1;
+  }
+  .right {
+    .no-shrink();
+    flex-basis: 300px;
+  }
 }
