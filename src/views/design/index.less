@@ -19,12 +19,18 @@
 
 .body {
   display: flex;
-  flex-basis: cal(100vh - @height);
+  flex-basis: calc(100vh - @height);
   .no-shrink();
   flex-grow: 1;
   .left {
     .no-shrink();
     flex-basis: 300px;
+    border-right: 1px solid #f0f0f0;
+    :global {
+      .ant-tabs.ant-tabs-left {
+        height: 100%;
+      }
+    }
   }
   .center {
     .no-shrink();
@@ -33,5 +39,6 @@
   .right {
     .no-shrink();
     flex-basis: 300px;
+    border-left: 1px solid #f0f0f0;
   }
 }

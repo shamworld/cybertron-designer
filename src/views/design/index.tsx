@@ -1,7 +1,7 @@
 import React, { Component, ReactElement } from 'react';
 import EditorArea from './components/editor-area';
 import PanelArea from './components/panel-area';
-import SettingArea from './components/setting-area';
+import SettingArea from './components/setting-area/setting-area';
 import { v4 as uuid } from 'uuid';
 import StyleValueUnit from '@/enum/style-value-unit';
 import WidgetType from '@/enum/schema/widget-type.enum';

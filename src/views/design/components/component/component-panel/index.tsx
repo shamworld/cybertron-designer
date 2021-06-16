@@ -15,16 +15,16 @@ export default class ComponentPanel extends React.Component<any, ComponentPanelS
     super(props);
     this.state = {
       componentCollection: mockComponentList
-    }
+    };
   }
 
   // 渲染单个托盘里边的组件图标列表
   renderComponentIconList(list: ITemplateProps[]) {
-    return list.map(item => {
+    return list.map((item, index) => {
       return (
-        <div className={style.componentInfo}>
-          <AppstoreAddOutlined />
-          <span >{ item.name }</span>
+        <div key={index} className={style.componentInfo}>
+          <AppstoreAddOutlined className={style.icon}/>
+          <span className={style.componentName}>{item.name}</span>
         </div>
       );
     });
@@ -34,20 +34,21 @@ export default class ComponentPanel extends React.Component<any, ComponentPanelS
     const { TabPane } = Tabs;
     const { componentCollection } = this.state;
     const tabPanes = componentCollection.map((item, index) => {
-      const Cmp = item.list
+      const tpl = this.renderComponentIconList(item.list);
       return (
         <TabPane tab={item.typeName} key={item.type}>
-          <div>
-
+          <div className={style.componentList}>
+            {tpl}
           </div>
         </TabPane>
-      )
-    })
+      );
+    });
 
     return (
       <Tabs>
-        <TabPane tab="通用"></TabPane>
+        {tabPanes}
       </Tabs>
     );
   }
+
 }
