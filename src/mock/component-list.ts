@@ -37,19 +37,19 @@ const mockComponentList: Array<IComponentList> = [
     list: [
       {
         id: 0,
-        name: '列表',
+        name: 'banner',
         type: 'list',
         icon: 'BuildOutlined'
       },
       {
         id: 1,
-        name: '列表',
+        name: '轮播图',
         type: 'list',
         icon: 'BuildOutlined'
       },
       {
         id: 2,
-        name: '列表',
+        name: '自定义组件',
         type: 'list',
         icon: 'BuildOutlined'
       },
