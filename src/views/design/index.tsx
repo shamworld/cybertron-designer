@@ -1,5 +1,5 @@
 import React, { Component, ReactElement } from 'react';
-import EditorArea from './components/editor-area';
+import EditorArea from './components/editor-area/editor-area';
 import PanelArea from './components/panel-area';
 import SettingArea from './components/setting-area/setting-area';
 import { v4 as uuid } from 'uuid';
