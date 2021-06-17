@@ -4,7 +4,6 @@ import style from './index.less';
 
 export default class ToolBar extends React.Component<{}, {}> {
   render() {
-    console.log('style: ', style);
     return (
       <div className={style.main}>
         <div className={style.left}>左边</div>

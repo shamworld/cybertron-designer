@@ -1,5 +1,6 @@
 import WidgetSchema from '@/interface/schema/widget/widget.schema';
 import React from 'react';
+import PageWidget from '@/views/design/components/widgets/page/page';
 
 import style from './index.less';
 
@@ -14,7 +15,11 @@ export default class EditorArea extends React.Component<EditorAreaProps, {}> {
   }
 
   render() {
-    const { props } = this;
-    return <div className={style.main}>Editor Area works!</div>;
+    const { schema } = this.props;
+    return (
+      <div className={style.main}>
+        <PageWidget schema={schema} />
+      </div>
+    );
   }
 }
