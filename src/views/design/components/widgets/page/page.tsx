@@ -86,12 +86,20 @@ export default class PageWidget extends React.Component<PageWidgetProps, any> {
     const { items } = this.state;
     // console.log('render page: ', schema);
     console.log('items in line 91: ', items);
+    // items 更新了之后，DND 没有重绘
     return (
-      <DragDropContext onDragEnd={this.onDragEnd}>
-        <Droppable droppableId={schema.id}>
-          {this.renderDroppable}
-        </Droppable>
-      </DragDropContext>
+      <>
+        <div>
+          { items.map(item => {
+            return <div key={item.content}>{item.content}</div>;
+          }) }
+        </div>
+        <DragDropContext onDragEnd={this.onDragEnd}>
+          <Droppable droppableId={schema.id}>
+            {this.renderDroppable}
+          </Droppable>
+        </DragDropContext>
+      </>
     );
   }
 }
