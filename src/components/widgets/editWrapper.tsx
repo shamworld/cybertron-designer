@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useRecoilState } from 'recoil';
-import { getCurrentElement } from '@/store/atorms/global';
+import { currentElementAtom } from '@/store/atorms/global';
 import styles from './index.less';
 
 const EditWrapper = (props) => {
-    const [currentElement, setCurrentElement] = useRecoilState(getCurrentElement);    
+    const [currentElement, setElementId] = useRecoilState(currentElementAtom);
     const onItemClick = () => {
-        setCurrentElement(props.id);
+        setElementId(props.id);
     };
     return (
         <div

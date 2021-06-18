@@ -10,7 +10,12 @@ const mockComponentData: Array<IComponentData> = [
             color: 'red',
             width: "100px",
             height: "100px",
-            backgroundColor: "green"
+            opacity:0.5,
+            text: "文本组件",
+            textAlign:'center',
+            lineHeight:"12px",
+            backgroundColor: "green",
+            fontFamily:""
         }
     },
     {

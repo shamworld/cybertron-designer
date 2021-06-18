@@ -4,6 +4,7 @@ import Tabs from 'antd/es/tabs';
 export interface PanelAreaState {
   tabPosition: 'left' | 'right' | 'top' | 'bottom';
 }
+const TabPane = Tabs.TabPane
 
 export default class PanelArea extends React.Component<{}, PanelAreaState> {
   constructor(props: any) {

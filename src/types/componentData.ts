@@ -1,3 +1,4 @@
+import {TextComponentProps} from './defaultProps'
 export interface IComponentData {
     /** uuid v4 生成 */
     id: string;
@@ -6,7 +7,7 @@ export interface IComponentData {
     /** 组件名 */
     name?: string;
     /** 组件属性 详情见 defaultProps */
-    props?: {
-        [key: string]: any
+    props: {
+        [key in keyof TextComponentProps]?: any
     }
 }

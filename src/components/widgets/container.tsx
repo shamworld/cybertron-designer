@@ -1,11 +1,11 @@
-import React from 'react'
+import React,{FC} from 'react'
 import {TextComponentProps} from "@/types/defaultProps"
 
-// props 属性待整合
-const ContainerWidget= (props) => {        
+// props 有的属性需要剔除、待整理
+const ContainerWidget:FC<TextComponentProps>= (props) => {        
     const { text, ...restProps } = props
     return (
-        <div style={...restProps}>
+        <div style={{...restProps}}>
             {text}
         </div>
     )

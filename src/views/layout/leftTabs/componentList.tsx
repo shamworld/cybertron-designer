@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { ITemplateProps } from '@/types/componentList';
 import { useRecoilState } from 'recoil';
-import { getComponentData } from '@/store/atorms/global';
+import { componentDataAtom } from '@/store/atorms/global';
 import { v4 as uuidv4 } from 'uuid';
 
 import styles from './index.less';
@@ -10,7 +10,7 @@ interface IProps {
 }
 
 const ComponentList: FC<IProps> = (props) => {
-  const [componentData, setComponentData] = useRecoilState(getComponentData);
+  const [componentData, setComponentData] = useRecoilState(componentDataAtom);
   const addComponentData = (item: ITemplateProps) => {
     const styles = item.props;
     let newcomponentData = [...componentData];
