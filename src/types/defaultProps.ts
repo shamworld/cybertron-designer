@@ -1,4 +1,4 @@
-import {mapValues, without} from 'lodash-es';
+import { mapValues, without } from 'lodash-es';
 export interface CommonComponentProps {
   // actions
   actionType: string;
@@ -65,7 +65,7 @@ export interface TextComponentProps extends CommonComponentProps {
 export const textDefaultProps: TextComponentProps = {
   // basic props - font styles
   ...commonDefaultProps,
-  height: '20px',
+  height: '100px',
   width: '100%',
   text: '正文内容',
   fontSize: '14px',
@@ -76,7 +76,6 @@ export const textDefaultProps: TextComponentProps = {
   lineHeight: '1',
   textAlign: 'left',
   color: '#000000',
-  backgroundColor: 'red',
 };
 
 export interface ImageComponentProps extends CommonComponentProps {

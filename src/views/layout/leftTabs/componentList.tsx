@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { ITemplateProps } from '@/types/componentList';
 import { useRecoilState } from 'recoil';
 import { componentDataAtom } from '@/store/atorms/global';
+import { textDefaultProps} from "@/types/defaultProps"
 import { v4 as uuidv4 } from 'uuid';
 
 import styles from './index.less';
@@ -19,7 +20,7 @@ const ComponentList: FC<IProps> = (props) => {
       name: item.name,
       type: item.type,
       props: {
-        ...styles,
+        ...textDefaultProps
       },
     };
     newcomponentData.push(newItem);

@@ -1,27 +1,44 @@
 import React, { Fragment } from 'react'
 import { Tabs, Row } from 'antd';
-import { useRecoilValue } from "recoil"
+import { useRecoilValue, useRecoilState } from "recoil"
 import { reduce } from 'lodash-es'
 import { IComponentData } from "@/types/componentData"
 import { mapPropsToForms, FormProps, PropToForm } from '@/types/propsMap'
-import { getCurrentElement } from "@/store/selectors/componentsSelectors"
+import { TextComponentProps } from "@/types/defaultProps"
+import { componentDataAtom, currentElementAtom } from '@/store/atorms/global'
+import { getCurrentElement, } from "@/store/selectors/componentsSelectors"
 import { firstToUpper } from "@/util"
 import styles from './index.less'
 const TabPane = Tabs.TabPane
 
-// TODO 
-// 后期待配置 根据属性映射关系自动遍历绑定 不需要一个个去手👋码
 const Index: React.FC = () => {
     const currentElement = useRecoilValue<IComponentData>(getCurrentElement)
+    const [componentData, setComponentData] = useRecoilState(componentDataAtom);
+    const currentElementId = useRecoilValue(currentElementAtom);
+
     if (currentElement && currentElement.props) {
         const propMap = currentElement.props
-        console.log(propMap);
-        
-        const propChange = (v) => {
-            console.log(v);
+        const propChange = ({ key, value }) => {
+            let newData = [...componentData]
+            // TODO 后续抽离出去、可能还需要递归去找、现在先默认就是一层
+            newData = newData.map((data) => {
+                if (data.id === currentElementId) {
+                    const newData = {
+                        ...data,
+                        props: {
+                            ...data.props,
+                            [key]: value
+                        }
+                    }
+                    return newData
+                }
+                return data
+            })
+            setComponentData(newData)
         }
         const finalProps = reduce(propMap, (result, value, key) => {
-            const item = mapPropsToForms[key] as PropToForm
+            const newKey = key as keyof TextComponentProps
+            const item = mapPropsToForms[newKey] as PropToForm
             if (item) {
                 const { valueProp = "value", eventName = "change", initalTransform, afterTransform } = item
                 const newItem: FormProps = {
@@ -32,15 +49,13 @@ const Index: React.FC = () => {
                     events: {
                         // eventName:change/foce 等 需要拼接成 onChange
                         [`on${firstToUpper(eventName)}`]: (e: unknown) => {
-                            console.log(e);
-                            
                             propChange({
                                 key, value: afterTransform ? afterTransform(e) : e
                             })
                         }
                     }
                 }
-                result[key] = newItem
+                result[newKey] = newItem
             }
             return result
         }, {} as FormProps)
