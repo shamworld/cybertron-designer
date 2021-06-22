@@ -1,5 +1,5 @@
 import React, { ComponentClass, Suspense } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch,Redirect } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import { routeConfig } from '@/router';
 
@@ -8,10 +8,13 @@ const App = (): React.ReactElement => {
   const routerTpl = routeConfig.map((item) => {
     const Cmp: ComponentClass = item.component as ComponentClass;
     return (
-      <Route path={item.path} exact>
-        <Suspense fallback={'loading...'}>
-          <Cmp></Cmp>
-        </Suspense>
+      <Route key={item.path} path={item.path} exact>
+        {
+          item.redirect ?
+            <Redirect key={item.path} to={item.redirect} /> : <Suspense key={item.path} fallback={'loading...'}>
+              <Cmp />
+            </Suspense>
+        }
       </Route>
     );
   });

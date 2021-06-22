@@ -6,13 +6,14 @@ import {RouteProps} from 'react-router-dom'
 
 interface RouteConfig extends RouteProps{
   name: string;
+  redirect?:string
 }
 
 export const routeConfig: RouteConfig[] = [
   {
     path: '/',
     name: '首页',
-    component: Layout,
+    redirect: '/home'
   },
 
   {
