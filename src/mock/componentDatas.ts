@@ -5,6 +5,7 @@ const mockComponentData: Array<IComponentData> = [
         id: uuidv4(),
         name: "容器组件",
         type: "container-widget",
+        layerName: '图层1',
         props: {
             fontSize: "20px",
             color: 'red',
@@ -22,6 +23,7 @@ const mockComponentData: Array<IComponentData> = [
         id: uuidv4(),
         name: "文本组件",
         type: "text-widget",
+        layerName: '图层2',
         props: {
             backgroundColor: 'red',
             text: "文本组件",
@@ -30,6 +32,7 @@ const mockComponentData: Array<IComponentData> = [
     {
         id: uuidv4(),
         name: "Button组件",
+        layerName: '图层3',
         type: "image-widget",
         props: {
             // width: "100px",
