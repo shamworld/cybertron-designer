@@ -1,5 +1,5 @@
 import React, { FC } from "react"
-import { Collapse } from 'antd';
+import { Collapse, Empty } from 'antd';
 import { TextComponentProps } from "@/types/defaultProps"
 import { difference } from "lodash-es"
 import PropsTable from './propsTable'
@@ -30,7 +30,7 @@ const defaultEditGroups: GroupProps[] = [
     }
 ]
 export interface IProps {
-    props: any
+    props: any;
 }
 const EditGroup:FC<IProps> = (props) => {
     if (props.props) {

@@ -15,6 +15,7 @@ const Index: React.FC = () => {
             {componentData.map((item: IComponentData) => {
                 const Component = componentMap[item.type].component as unknown as any
                 return (
+                    !item.isHidden ?
                     <EditWrapper key={item.id} id={item.id}>
                         {/* 到时候需要根据数据循环递归去遍历 */}
                         {/* {createElement(
@@ -24,8 +25,8 @@ const Index: React.FC = () => {
                                 },
                                 item.name,
                             )} */}
-                        <Component {...item.props} />
-                    </EditWrapper>
+                         {  <Component {...item.props} />  }
+                    </EditWrapper> : null
                 )
             })}
         </div>
