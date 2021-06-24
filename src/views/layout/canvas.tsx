@@ -13,7 +13,7 @@ const Index: React.FC = () => {
     return (
         <div className={styles.content}>
             {componentData.map((item: IComponentData) => {
-                const Component = componentMap[item.type].component as React.FC
+                const Component = componentMap[item.type].component as unknown as any
                 return (
                     <EditWrapper key={item.id} id={item.id}>
                         {/* 到时候需要根据数据循环递归去遍历 */}

@@ -6,16 +6,17 @@ const mockComponentData: Array<IComponentData> = [
         name: "容器组件",
         type: "container-widget",
         props: {
-            fontSize: "20px",
-            color: 'red',
             width: "100px",
             height: "100px",
+            fontSize: "20px",
             opacity:0.5,
             text: "文本组件",
             textAlign:'center',
             lineHeight:"12px",
+            fontFamily:"",
+            textDecoration:"none",
+            color: 'red',
             backgroundColor: "green",
-            fontFamily:""
         }
     },
     {
