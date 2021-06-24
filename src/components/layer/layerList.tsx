@@ -2,12 +2,15 @@ import React, {MouseEvent} from "react"
 import { useRecoilValue, useRecoilState } from "recoil"
 import { Tabs, Row, Tooltip, Empty } from 'antd';
 import { EyeOutlined, EyeInvisibleOutlined, LockOutlined,  UnlockOutlined } from '@ant-design/icons'
-// import { ITemplateProps } from '@/types/componentList';
+import { ITemplateProps } from '@/types/componentList';
 import { IComponentData } from '@/types/componentData'
 import { componentDataAtom, currentElementAtom } from '@/store/atorms/global'
 import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd'
 import styles from './index.less'
-const LayerList:React.FC<any> = (props) => {
+export interface Iprops {
+    props: IComponentData
+}
+const LayerList:React.FC<Iprops> = ({props}) => {
     const [componentData, setComponentData] = useRecoilState(componentDataAtom);
     const [currentElementId, setElementId] = useRecoilState(currentElementAtom);
     const isLocked = props.isLocked
