@@ -4,9 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack serve",
-    "prebuild:prod": "node test.js",
-    "build:prod": "node test.js"
+    "start": " NODE_ENV=development webpack serve"
   },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
@@ -15,6 +13,7 @@
     "lodash-es": "^4.17.21",
     "react": "^17.0.2",
     "react-beautiful-dnd": "^13.1.0",
+    "react-color": "^2.19.3",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
     "recoil": "^0.3.1",

@@ -30,12 +30,16 @@ const mockComponentList: Array<IComponentList> = [
         name: '图片',
         type: 'image-widget',
         icon: 'BuildOutlined',
+        props:{
+
+        }
       },
       {
         id: uuidv4(),
         name: '列表',
         type: 'list-widget',
         icon: 'BuildOutlined',
+        props:{}
       },
     ],
   },
@@ -48,24 +52,28 @@ const mockComponentList: Array<IComponentList> = [
         name: '列表',
         type: 'list',
         icon: 'BuildOutlined',
+        props:{}
       },
       {
         id: uuidv4(),
         name: '列表',
         type: 'list',
         icon: 'BuildOutlined',
+        props:{}
       },
       {
         id: uuidv4(),
         name: '列表',
         type: 'list',
         icon: 'BuildOutlined',
+        props:{}
       },
       {
         id: uuidv4(),
         name: '列表',
         type: 'list',
         icon: 'BuildOutlined',
+        props:{}
       },
     ],
   },

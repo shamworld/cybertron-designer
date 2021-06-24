@@ -16,7 +16,7 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
-import ComponentPanel from './component-panel.vue';
+import Index from './component-panel.vue';
 import ComponentTree from './component-tree.vue';
 
 export default defineComponent({
