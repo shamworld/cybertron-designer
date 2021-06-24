@@ -3,25 +3,29 @@ import { Tabs, Row, Tooltip, Empty } from 'antd';
 import { EyeOutlined, EyeInvisibleOutlined, LockOutlined,  UnlockOutlined } from '@ant-design/icons'
 import { useRecoilValue, useRecoilState } from "recoil"
 import { reduce } from 'lodash-es'
-import { IComponentData } from "@/types/componentData"
 import { mapPropsToForms, FormProps, PropToForm } from '@/types/propsMap'
 import { TextComponentProps } from "@/types/defaultProps"
 import { componentDataAtom, currentElementAtom } from '@/store/atorms/global'
-import { getCurrentElement, } from "@/store/selectors/componentsSelectors"
 import { firstToUpper } from "@/util"
 import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd'
+import {IProps} from './editGroup'
 import styles from './index.less'
-const TabPane = Tabs.TabPane
-
-const Index: React.FC = () => {
-    const currentElement = useRecoilValue<IComponentData>(getCurrentElement)
+import { IComponentData } from '@/types/componentData'
+const { TabPane } = Tabs
+const Index: React.FC<IProps> = (props) => {
     const [componentData, setComponentData] = useRecoilState(componentDataAtom);
     // const currentElementId = useRecoilValue(currentElementAtom);
     const [currentElementId, setElementId] = useRecoilState(currentElementAtom);
-    if (currentElement && currentElement.props) {
-        const isLocked = currentElement.isLocked
-        const isHidden = currentElement.isHidden
-        const propMap = currentElement.props
+    // if (currentElement && currentElement.props) {
+    //     const isLocked = currentElement.isLocked
+    //     const isHidden = currentElement.isHidden
+    //     const propMap = currentElement.props
+    // const currentElementId = useRecoilValue(currentElementAtom);
+
+    if (props.props) {
+        const propMap = props.props
+        const isLocked = props.isLocked
+        const isHidden = props.isHidden
         const propChange = ({ key, value }) => {
             let newData = [...componentData]
             // console.log(newData)
@@ -102,21 +106,12 @@ const Index: React.FC = () => {
             setElementId(item.id)
         }
 
-        // const onBeforeCapture = () => {
-
-        // }
-        // const onBeforeDragStart = () => {
-
-        // }
-        // const onDragStart = () => {
-
-        // }
         const onDragUpdate = (result: DropResult) => {
             
         }
         const onDragEnd = (result: DropResult) => {
             // console.log(result)
-            const { source, destination, draggableId } = result;
+            const { source, destination } = result;
             if(!destination) return
             let arr:IComponentData[] = [...componentData]
             // arr[0].
