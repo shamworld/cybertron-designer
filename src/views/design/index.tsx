@@ -1,11 +1,14 @@
-import React, { Component, ReactElement } from "react";
-import EditorArea from "./components/editor-area";
-import PanelArea from "./components/panel-area";
-import SettingArea from "./components/setting-area";
+import React, { Component, ReactElement } from 'react';
+import EditorArea from './components/editor-area/editor-area';
+import PanelArea from './components/panel-area';
+import SettingArea from './components/setting-area/setting-area';
 import { v4 as uuid } from 'uuid';
-import StyleValueUnit from "@/enum/style-value-unit";
-import WidgetType from "@/enum/schema/widget-type.enum";
-import PageSchema from "@/interface/schema/page.schema";
+import StyleValueUnit from '@/enum/style-value-unit';
+import WidgetType from '@/enum/schema/widget-type.enum';
+import PageSchema from '@/interface/schema/page.schema';
+
+import style from './index.less';
+import ToolBar from '@/views/design/components/tool-bar';
 
 export interface DesignState {
   schema: PageSchema | null;
@@ -52,29 +55,32 @@ export default class Design extends Component<{}, DesignState> {
           // 页面的运行时状态 ( 包括远端数据 )
           state: {},
           // 页面内的交互事件
-          events: {},
+          events: {}
         },
-        children: [],
+        children: []
       }
     };
   }
 
   render(): ReactElement {
     const { schema } = this.state;
-    console.log('schema: ', schema);
-    return <div className="flex flex-col h-screen w-screen">
-      <section className="flex-shrink-0 h-60 border-b border-border"></section>
-      <section className="flex-shrink-0 body flex flex-grow">
-        <div className="flex-shrink-0 component-panel border-border">
-          <PanelArea></PanelArea>
-        </div>
-        <div className="flex-shrink-0 designer-canvas flex-grow">
-          <EditorArea schema={schema} />
-        </div>
-        <div className="flex-shrink-0 form-panel border-l border-border">
-          <SettingArea></SettingArea>
-        </div>
-      </section>
-    </div>
+    return (
+      <div className={style.main}>
+        <section className={style.toolBar} >
+          <ToolBar />
+        </section>
+        <section className={style.body} >
+          <div className={style.left}>
+            <PanelArea />
+          </div>
+          <div className={style.center}>
+            <EditorArea schema={schema} />
+          </div>
+          <div className={style.right}>
+            <SettingArea />
+          </div>
+        </section>
+      </div>
+    );
   }
 }

@@ -1,11 +1,16 @@
 import { ReactNode } from 'react'
 import { Input, InputNumber, Slider, Select, Radio } from "antd"
+import { SketchPicker } from 'react-color'
+
 import { TextComponentProps } from './defaultProps'
 import fontFamilyOptions from '../components/widgets/fontFamilyOptions'
 
 const TextArea = Input.TextArea
 const Group = Radio.Group
-const Option =Select.Option
+const Option = Select.Option
+
+// TODO
+// SketchPicker 待二次封装、点击弹出来颜色选择器、不然太占位置
 export interface PropToForm {
     component: any;
     subComponent?: any;
@@ -44,8 +49,17 @@ export const mapPropsToForms: PropsToForms = {
         afterTransform: (e: any) => e.target.value,
     },
     color: {
-        component: 'color-picker',
-        text: '字体颜色'
+        component: SketchPicker,
+        text: '字体颜色',
+        valueProp: "color",
+        afterTransform: (e: any) => e.hex
+
+    },
+    backgroundColor: {
+        component: SketchPicker,
+        text: '背景颜色',
+        valueProp: "color",
+        afterTransform: (e: any) => e.hex
     },
     fontSize: {
         text: '字号',

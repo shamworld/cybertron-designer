@@ -6,7 +6,6 @@ import '@/styles/styles.less';
 
 // 支持 hmr
 if (module.hot) {
-  console.log('module.hot', module.hot);
   module.hot.accept();
   module.hot.addStatusHandler((status: string) => {
       if (status === 'prepare') console.clear();
