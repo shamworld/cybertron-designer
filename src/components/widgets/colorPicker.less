@@ -1,0 +1,43 @@
+.colorBox {
+    display: flex;
+    flex-wrap: wrap;
+    width: 130px;
+    padding: 0;
+    margin-bottom: 0;
+    li {
+        width: 20px;
+        margin: 3px;
+        height: 20px;
+        border-radius: 4px;
+        list-style: none;
+        border: 1px solid #ececec;
+        cursor: pointer;
+        &:hover {
+            border: 1px solid #3e3e3e;
+        }
+    }
+
+}
+
+.native-color-container {
+    // width: 150px;
+    // line-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.native-color-container input[type="color"] {
+    cursor: pointer;
+    height: 50px;
+    width: 100px;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    
+}
+
+.components-colorpicker {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}

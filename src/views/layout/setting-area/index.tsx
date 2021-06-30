@@ -3,6 +3,7 @@ import { Tabs, Empty } from 'antd';
 import { useRecoilValue } from "recoil"
 import EditGroup from "@/components/edit/editGroup"
 import LayerList from '@/components/layer/layerList'
+import PageSetting from '@/components/pageSetting/pageSetting'
 import { IComponentData } from "@/types/componentData"
 import { getCurrentElement, } from "@/store/selectors/componentsSelectors"
 const TabPane = Tabs.TabPane
@@ -21,6 +22,9 @@ const Index: React.FC = () => {
             </TabPane>
             <TabPane tab="图层设置" key="layer">
                 <LayerList props={currentElement} />
+            </TabPane>
+            <TabPane tab="页面设置" key="pageSetting">
+                <PageSetting />
             </TabPane>
             <TabPane tab="数据源" key="dataSource">
                 Content of Tab Pane 2
