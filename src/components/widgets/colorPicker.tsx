@@ -1,49 +1,45 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, { useState } from 'react';
+import { SketchPicker } from 'react-color';
 import styles from './colorPicker.less';
-
-export interface IProps {
-    onChange: Function;
-    color?: string;
+interface IProps {
+  onChange: Function;
+  color?: string;
 }
 
 const ColorPicker: React.FC<IProps> = (props) => {
-  const defaultColor = [
-    '#ffffff',
-    '#f5222d',
-    '#fa541c',
-    '#fadb14',
-    '#52c41a',
-    '#1890ff',
-    '#722ed1',
-    '#8c8c8c',
-    '#000000',
-    '',
-  ];
-  const [inputcolor, setColor] = useState(props?.color  || defaultColor[0])
-  const changeColor = (c: string) => {
-    setColor(c)
-    props.onChange(c)
-  };
-  const colorList = () => {
-    return (
-      <ul className={styles.colorBox}>
-        {defaultColor.map((c,index) => {
-          return (
-            <li key={index} style={{background: c}} onClick={()=>changeColor(c)}></li>
-          );
-        })}
-      </ul>
-    );
-  };
-  return <div className={styles['components-colorpicker']}>
-    <div className={styles['native-color-container']}>
-      <span>背景颜色：</span>
-        <input type="color" value={inputcolor} onChange={(e:ChangeEvent<HTMLInputElement>)=> changeColor(e.target.value)}/>
+  const [displayColorPicker, setSisplayColorPicker] = useState(false);
+  const [color, setColor] = useState(props?.color || 'black');
 
+  const handleClick = () => {
+    setSisplayColorPicker(!displayColorPicker);
+  };
+
+  const handleClose = () => {
+    setSisplayColorPicker(false);
+  };
+
+  const handleChange = (color) => {
+    setColor(color.hex);
+    props.onChange(color.hex);
+  };
+
+  return (
+    <div>
+      <div
+        className={styles.swatch}
+        style={{ background: color }}
+        onClick={handleClick}
+      >
+        <div className={styles.color} />
       </div>
-      {colorList()}
-      
-      </div>;
+      {displayColorPicker ? (
+        <div className={styles.popover}>
+          <div className={styles.cover} onClick={handleClose} />
+          <SketchPicker color={color} onChange={handleChange} />
+        </div>
+      ) : null}
+    </div>
+  );
 };
 
 export default ColorPicker;

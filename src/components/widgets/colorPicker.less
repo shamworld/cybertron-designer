@@ -1,43 +1,24 @@
-.colorBox {
-    display: flex;
-    flex-wrap: wrap;
-    width: 130px;
-    padding: 0;
-    margin-bottom: 0;
-    li {
-        width: 20px;
-        margin: 3px;
-        height: 20px;
-        border-radius: 4px;
-        list-style: none;
-        border: 1px solid #ececec;
-        cursor: pointer;
-        &:hover {
-            border: 1px solid #3e3e3e;
-        }
-    }
-
+.color {
+  width: 36px;
+  height: 14px;
+  border-radius: 2px;
 }
-
-.native-color-container {
-    // width: 150px;
-    // line-height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.swatch {
+  padding: 5px;
+  background: #fff;
+  border-radius: 1px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  display: 'inline-block';
+  cursor: 'pointer';
 }
-.native-color-container input[type="color"] {
-    cursor: pointer;
-    height: 50px;
-    width: 100px;
-    border: 0;
-    padding: 0;
-    background-color: transparent;
-    
+.popover {
+  position: absolute;
+  z-index: 2;
 }
-
-.components-colorpicker {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+.cover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
