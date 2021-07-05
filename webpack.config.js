@@ -1,42 +1,32 @@
-const path = require("path");
-const TerserWebpackPlugin = require('terser-webpack-plugin');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { join, resolve } = require("path");
+const merge = require('webpack-merge');
+// 获取命令执行中的参数
+const argv = require('yargs-parser')(process.argv.slice(2));
+const _mode = argv.mode || 'development';
+const _modeFlag = _mode === "production";
+const _mergeConfig = require(`./config/webpack.${_mode}.js`);
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const env = process.env.NODE_ENV;
-
-module.exports = {
-  entry: "./src/index.tsx",
-  output: { path: path.join(__dirname, "build"), filename: "index.bundle.js" },
-  mode: env || "development",
+const webpackBaseConfig = {
+  entry: {
+    app: resolve("./src/index.tsx")
+  },
+  output: {
+    path: join(__dirname, './dist/assets')
+  },
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js"],
     alias: {
-      '@': path.join(__dirname, 'src')
+      '@': join(__dirname, 'src')
     }
-  },
-  devServer: {
-    contentBase: path.join(__dirname, "src"),
-    hot: true,
-    hotOnly: true,
-    port:8888,
-    historyApiFallback: true,
-    disableHostCheck: true,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-    }
-
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)/,
+        include: [resolve('src')],
         exclude: /node_modules/,
-        use: ["ts-loader"],
-      },
-      {
-        test: /\.(ts|tsx)$/,
-        exclude: /node_modules/,
-        use: ["ts-loader"],
+        loader: "babel-loader"
       },
       {
         test: /\.(css)$/,
@@ -52,7 +42,7 @@ module.exports = {
               modules: {
                 localIdentName: '[path][name]__[local]--[hash:base64:5]'
               },
-              sourceMap: env === 'development'
+              sourceMap: !_modeFlag === 'development'
             }
           },
           {
@@ -63,67 +53,21 @@ module.exports = {
               }
             }
           }
-
         ],
       },
       {
-        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
-        loader: 'url-loader',
-        options: {
-          limit: 8192
-        }
+        test: /\.(png|jpg|jpeg|gif|eot|woff|woff2|ttf|svg|otf|webp)$/,
+        type: "asset"
       }
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, "src", "index.html"),
-    }),
-  ],
-  // optimization: {
-  //   runtimeChunk: true,
-  //   minimize: env !== 'development',
-  //   minimizer: [
-  //     new TerserWebpackPlugin({
-  //       parallel: true,
-  //       terserOptions: {
-  //         warnings: false,
-  //         parse: {},
-  //         compress: {
-  //           drop_console: true,
-  //           drop_debugger: false,
-  //           pure_funcs: ['console.log']
-  //         }
-  //       }
-  //     })
-  //   ],
-  //   splitChunks: {
-  //     chunks: 'all',
-  //     minSize: 100000,
-  //     maxSize: 1000000,
-  //     minChunks: 1,
-  //     maxAsyncRequests: 6,
-  //     maxInitialRequests: 4,
-  //     automaticNameDelimiter: '-',
-  //     cacheGroups: {
-  //       vendor: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         name(module) {
-  //           // get the name. E.g. node_modules/packageName/not/this/part.js
-  //           // or node_modules/packageName
-  //           const packageName = module.context.match(
-  //             /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-  //           )[1];
-
-  //           // npm package names are URL-safe, but some servers don't like @ symbols
-  //           return `npm.${packageName.replace('@', '')}`;
-  //         }
-  //       }
-  //     }
-  //   }
-  // },
-  devtool:
-    env === 'development'
-      ? 'eval-cheap-module-source-map'
-      : 'hidden-source-map'
+    new MiniCssExtractPlugin({
+      filename: _modeFlag ? "styles/[name].[contenthash:5].css" : "styles/[name].css",
+      chunkFilename: _modeFlag ? "styles/[id].[contenthash:5].css" : "styles/[id].css",
+      ignoreOrder: true,
+    })
+  ]
 };
+
+module.exports = merge.default(webpackBaseConfig, _mergeConfig);
