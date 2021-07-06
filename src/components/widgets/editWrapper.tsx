@@ -61,7 +61,9 @@ const EditWrapper: React.FC<IProps> = (props) => {
       const {left, top} = caculateMovePosition(e);
       isMoving = true;
       if (editWrapperDiv.current) {
-        // console.log(editWrapperDiv.current.childNodes)
+        let dom = editWrapperDiv.current.childNodes[0] as HTMLElement
+        dom.style.top = top + 'px';
+        dom.style.left = left + 'px';
         editWrapperDiv.current.style.top = top + 'px';
         editWrapperDiv.current.style.left = left + 'px';
       }
@@ -138,14 +140,19 @@ const EditWrapper: React.FC<IProps> = (props) => {
     const handleMove = (e: globalThis.MouseEvent) => {
       const size = caculateSize(direction, e, {left, right, top, bottom});
       const {style} = currentElement;
+      let dom = editWrapperDiv.current.childNodes[0] as HTMLElement
       if (size) {
         style.width = size.width + 'px';
         style.height = size.height + 'px';
+        dom.style.width = size.width + 'px';
+        dom.style.height = size.height + 'px';
         if (size.left) {
           style.left = size.left + 'px';
+          dom.style.left = size.left + 'px';
         }
         if (size.top) {
           style.top = size.top + 'px';
+          dom.style.top = size.top + 'px';
         }
       }
     };
