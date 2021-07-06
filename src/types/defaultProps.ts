@@ -20,7 +20,7 @@ export interface CommonComponentProps {
   opacity: string;
   backgroundColor: string;
   // position and x,y
-  // position: string;
+  position: string;
   // left: string;
   // top: string;
   // right: string;
@@ -61,6 +61,8 @@ export interface TextComponentProps extends CommonComponentProps {
   lineHeight: string;
   textAlign: string;
   color: string;
+  left: string;
+  top: string
 }
 export const textDefaultProps: TextComponentProps = {
   // basic props - font styles
@@ -76,6 +78,9 @@ export const textDefaultProps: TextComponentProps = {
   lineHeight: '1',
   textAlign: 'left',
   color: '#000000',
+  left: '0px',
+  top: '0px',
+  position: 'absolute'
 };
 
 export interface ImageComponentProps extends CommonComponentProps {
