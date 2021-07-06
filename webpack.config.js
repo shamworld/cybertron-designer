@@ -1,5 +1,7 @@
 const { join, resolve } = require("path");
 const merge = require('webpack-merge');
+const WebpackBar = require('webpackbar');
+
 // 获取命令执行中的参数
 const argv = require('yargs-parser')(process.argv.slice(2));
 const _mode = argv.mode || 'development';
@@ -23,10 +25,11 @@ const webpackBaseConfig = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx|ts|tsx)/,
-        include: [resolve('src')],
-        exclude: /node_modules/,
-        loader: "babel-loader"
+        test: /\.(js|jsx|ts|tsx)$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'swc-loader',
+        },
       },
       {
         test: /\.(css)$/,
@@ -66,7 +69,8 @@ const webpackBaseConfig = {
       filename: _modeFlag ? "styles/[name].[contenthash:5].css" : "styles/[name].css",
       chunkFilename: _modeFlag ? "styles/[id].[contenthash:5].css" : "styles/[id].css",
       ignoreOrder: true,
-    })
+    }),
+    new WebpackBar()
   ]
 };
 

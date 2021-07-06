@@ -2,6 +2,8 @@ const { join, resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const os = require('os');
 
 module.exports = {
     mode: 'production',
@@ -12,6 +14,11 @@ module.exports = {
     },
     optimization: {
         minimize: true,
+        minimizer: [
+            new TerserPlugin({
+                parallel: os.cpus().length - 1,
+            }),
+        ],
         runtimeChunk: {
             name: 'runtime',
         },
