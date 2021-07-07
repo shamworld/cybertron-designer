@@ -18,28 +18,29 @@ const mockComponentData: Array<IComponentData> = [
             textDecoration:"none",
             color: 'red',
             backgroundColor: "green",
+            // position: 'absolute',
+            left: '100px', 
+            top: '150px'
         }
     },
-    {
-        id: uuidv4(),
-        name: "文本组件",
-        type: "text-widget",
-        layerName: '图层2',
-        props: {
-            backgroundColor: 'red',
-            text: "文本组件",
-        }
-    },
-    {
-        id: uuidv4(),
-        name: "Button组件",
-        layerName: '图层3',
-        type: "image-widget",
-        props: {
-            // width: "100px",
-            // height: "20px",
-        }
-    }
+    // {
+    //     id: uuidv4(),
+    //     name: "文本组件",
+    //     type: "text-widget",
+    //     layerName: '图层2',
+    //     props: {
+    //         backgroundColor: 'red',
+    //         text: "文本组件",
+    //     }
+    // },
+    // {
+    //     id: uuidv4(),
+    //     name: "Button组件",
+    //     layerName: '图层3',
+    //     type: "image-widget",
+    //     props: {
+    //     }
+    // }
 ]
 
 export default mockComponentData

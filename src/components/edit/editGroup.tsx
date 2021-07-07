@@ -21,6 +21,10 @@ const defaultEditGroups: GroupProps[] = [
         items: ['borderStyle', 'borderColor', 'borderWidth', 'borderRadius']
     },
     {
+        text: '位置',
+        items: ['left', 'top']
+    },
+    {
         text: '阴影与透明度',
         items: ['opacity', 'boxShadow']
     },

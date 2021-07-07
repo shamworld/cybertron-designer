@@ -55,9 +55,9 @@ const Uploader: React.FC<IProps> = (props) => {
   let [isDragOver, setIsDragOver] = useState<boolean>(false);
   let inputRef = useRef<HTMLInputElement>(null);
   const [fileList, setFlieList] = useState<UploadFile[]>([]);
-  // const [respArr, setRespArr] = useState([]);
+  const [resultImg, setResultImg] = useState<string | ArrayBuffer>('');
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const cropperImg = useRef(null)
+  const cropperImg = useRef<null | HTMLImageElement>(null)
   let cropper: Cropper
   let imageBase64: string | ArrayBuffer = ''
   let cropData: CropDataProps | null = null
@@ -95,27 +95,10 @@ const Uploader: React.FC<IProps> = (props) => {
     const files = target.files;
     beforeUploadCheck(files);
   };
-
-  useEffect(()=> {
-    if(cropperImg.current) {
-      cropper = new Cropper(cropperImg.current, {
-        crop(event) {
-          const { x, y, width, height } = event.detail
-              cropData = {
-                x: Math.floor(x),
-                y: Math.floor(y),
-                width: Math.floor(width),
-                height: Math.floor(height)
-
-              }
-        }
-      })
-      console.log(cropper)
-    }
-  })
+  
   // 点击div
   const handleClick = (e: MouseEvent) => {
-    inputRef.current.click();
+    inputRef && inputRef.current && inputRef.current.click();
   };
   const addFileToList = async (uploadedFile: File) => {
     //  setFileObj()
@@ -126,15 +109,7 @@ const Uploader: React.FC<IProps> = (props) => {
       raw: uploadedFile,
       status: 'ready',
     };
-    // 如果是图片类型需要显示url
-    // if (props.listType === 'picture') {
-    //   try {
-    //     fileObj.url = URL.createObjectURL(uploadedFile);
-    //   } catch (err) {
-    //     console.error('upload File error', err);
-    //   }
-    // }
-     let reader = new FileReader()
+    let reader = new FileReader()
     reader.readAsDataURL(uploadedFile)
     reader.addEventListener('load',function(e) {
         imageBase64 = e.target.result
@@ -146,12 +121,7 @@ const Uploader: React.FC<IProps> = (props) => {
         }
         reader = null
     })
-   
-    // 是否自动上传
-    // fileLists.push(fileObj)
-    
   };
-
   const postFile = (readyFile: UploadFile) => {
     const formData = new FormData();
     formData.append('file', readyFile.raw);
@@ -162,6 +132,7 @@ const Uploader: React.FC<IProps> = (props) => {
           readyFile.status = 'success';
           readyFile.resp = data;
           // setRespArr([data, ...respArr]);
+          setResultImg(readyFile.url)
           setPageBackground(`url(${readyFile.url}) no-repeat center / 100% 100%`)
           props.success({resp: data, file: readyFile, list: fileList});
         } else {
@@ -192,28 +163,64 @@ const Uploader: React.FC<IProps> = (props) => {
     }
   };
 
+  useEffect(()=> {
+    // console.log('isModalVisible', isModalVisible)
+    if(isModalVisible) {
+      if(cropperImg.current) {
+        cropper = new Cropper(cropperImg.current, {
+          crop(event) {
+            const { x, y, width, height } = event.detail
+                cropData = {
+                  x: Math.floor(x),
+                  y: Math.floor(y),
+                  width: Math.floor(width),
+                  height: Math.floor(height)
+                }
+          }
+        })
+      }
+    }
+    
+  },[isModalVisible])
   const handleCropper = () => {
     setIsModalVisible(true)
-    console.log(cropperImg.current)
     
+    // cropper = null
 
   }
   const handleOk = () => {
     setIsModalVisible(false)
     if(cropData) {
       // console.log(cropData)
-      let res = cropper.getCroppedCanvas().toDataURL()
-      // console.log(res)
-      fileList[0].url = res
+      let res =  cropper.getCroppedCanvas({imageSmoothingQuality: 'high'}).toDataURL('image/jpeg')
+      setResultImg(res)
       setPageBackground(`url(${res}) no-repeat center / 100% 100%`)
+      cropper.destroy()
     }
   }
-  const handleCancel =()=> {
-    setIsModalVisible(false)
+  const handleCancel =  ()=> {
+     if(cropper) {
+        console.log('销毁le')
+        cropper.destroy()
+        setIsModalVisible(false)
+     }
   }
+
+  const handleDelete = (e: MouseEvent) => {
+    setResultImg('')
+    setPageBackground('')
+    fileList.splice(fileList.length-1, 1)
+  }
+
   return (
     <div>
-      {!fileList.length ? (
+       <input
+            ref={inputRef}
+            style={{display: 'none'}}
+            type="file"
+            onChange={(e: ChangeEvent) => handleFileChange(e)}
+          />
+      {!resultImg ? (
         <div
           className={styles.uploader_box}
           onClick={(e: MouseEvent) => handleClick(e)}
@@ -232,26 +239,21 @@ const Uploader: React.FC<IProps> = (props) => {
             <span>可拖拽至此区域</span>
           </p>
 
-          <input
-            ref={inputRef}
-            style={{display: 'none'}}
-            type="file"
-            onChange={(e: ChangeEvent) => handleFileChange(e)}
-          />
+         
         </div>
       ) : (
         <div className={styles.uploader_box_img}>
           <div
             style={{
-              background: `url(${fileList[0] && fileList[0].url}) no-repeat center / 100% 100%`,
+              background: `url(${resultImg}) no-repeat center / 100% 100%`,
               width: '150px',
               height: '150px',
             }}
           ></div>
           <div>
             <Button onClick={handleCropper}>裁剪图片</Button><br></br>
-            <Button>重新上传</Button><br></br>
-            <Button>删除图片</Button>
+            <Button onClick={(e: MouseEvent) => handleClick(e)}>重新上传</Button><br></br>
+            <Button onClick={(e:MouseEvent)=> handleDelete(e)}>删除图片</Button>
           </div>
         </div>
       )}
