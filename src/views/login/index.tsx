@@ -5,7 +5,7 @@
  * @Github: @163.com
  * @Date: 2021-07-13 10:47:31
  * @LastEditors: Roy
- * @LastEditTime: 2021-07-13 14:59:48
+ * @LastEditTime: 2021-07-13 16:49:09
  * @Deprecated: 否
  * @FilePath: /cybertron-designer/src/views/login/index.tsx
  */
@@ -15,6 +15,7 @@ import { UserOutlined, LockOutlined, } from '@ant-design/icons';
 import styles from './index.less'
 import classNames from 'classnames';
 import { Link } from "react-router-dom";
+import JiQiRen from "../../assets/qijiren.png"
 
 const Login: React.FC = () => {
     const [isDisabled, setIsDisabled] = useState<boolean>(true);
@@ -51,7 +52,7 @@ const Login: React.FC = () => {
             <Row gutter={24} className={styles.row}>
                 <Col span={12} className={styles.aside}>
                     <Link to="/" className={styles.logo}>
-                        <img src="../../assets/qijiren.png" />
+                        <img src={JiQiRen} />
                         <h2>码农机器人</h2>
                     </Link>
                     <h2>一个勤奋的码农建站工具</h2>

@@ -5,17 +5,16 @@
  * @Github: @163.com
  * @Date: 2021-07-12 21:27:25
  * @LastEditors: Roy
- * @LastEditTime: 2021-07-13 15:09:17
+ * @LastEditTime: 2021-07-13 16:49:47
  * @Deprecated: 否
  * @FilePath: /cybertron-designer/src/components/home/header.tsx
  */
 
 import React from "react";
 import { Input } from 'antd';
-const { Search } = Input;
-
 import style from './index.less';
 
+const { Search } = Input;
 
 
 const HomeHeader: React.FC = () => {

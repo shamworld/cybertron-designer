@@ -5,7 +5,7 @@
  * @Github: @163.com
  * @Date: 2021-06-29 22:34:52
  * @LastEditors: Roy
- * @LastEditTime: 2021-07-13 15:32:04
+ * @LastEditTime: 2021-07-13 16:55:25
  * @Deprecated: 否
  * @FilePath: /cybertron-designer/src/views/home/index.tsx
  */
@@ -18,6 +18,16 @@ import TemplateList from '@/components/home/templateList'
 import { TemplateProps } from '../../types/homeTemplist'
 import { Link } from "react-router-dom";
 
+import JiQiRen from "../../assets/qijiren.png"
+import HTML5 from '../../assets/html5.png'
+import Build from '../../assets/build.png'
+import Bulb from '../../assets/bulb.png'
+import Img1 from "../../assets/test/567308.png"
+import Img2 from "../../assets/test/677311.png"
+import Img3 from "../../assets/test/752918.png"
+import Img4 from "../../assets/test/685936.jpeg"
+import Img5 from "../../assets/test/322773.jpeg"
+import Img6 from "../../assets/test/650134.png"
 interface Welcome {
   image: string;
   title: string;
@@ -26,17 +36,17 @@ interface Welcome {
 
 const welcomeList: Welcome[] = [
   {
-    image: '../../assets/html5.png',
+    image: HTML5,
     title: '专注H5 始终如一',
     subtitle: '三年保持行业领先'
   },
   {
-    image: '../../assets/build.png',
+    image: Build,
     title: '海量 H5 模版',
     subtitle: '一键生成，一分钟轻松制作'
   },
   {
-    image: '../../assets/bulb.png',
+    image: Bulb,
     title: '极致体验',
     subtitle: '用户的一致选择'
   }
@@ -44,104 +54,97 @@ const welcomeList: Welcome[] = [
 const testData: TemplateProps[] = [
   {
     id: 1,
-    coverImg:
-      "../../assets/test/567308.png",
+    coverImg: Img1,
     title: "1024程序员日",
     author: "Roy",
     copiedCount: 1,
   },
   {
     id: 2,
-    coverImg:
-      "../../assets/test/677311.png",
+    coverImg: Img2,
     title: "前端海报",
     author: "Roy",
     copiedCount: 1,
   },
   {
     id: 3,
-    coverImg:
-      "../../assets/test/752918.png",
+    coverImg: Img3,
     title: "中秋节",
     author: "Roy",
     copiedCount: 1,
   },
   {
     id: 4,
-    coverImg:
-      "../../assets/test/685936.jpeg",
+    coverImg: Img4,
     title: "图片",
     author: "Roy",
     copiedCount: 1,
   },
   {
     id: 5,
-    coverImg:
-      "../../assets/test/322773.jpeg",
+    coverImg: Img5,
     title: "风景",
     author: "Roy",
     copiedCount: 1,
   },
   {
     id: 6,
-    coverImg:
-      "../../assets/test/650134.png",
+    coverImg: Img6,
     title: "背景",
     author: "Roy",
     copiedCount: 1,
   },
 ];
 
-export default class Index extends React.Component {
+const Index: React.FC = () => {
 
 
 
 
-  render(): ReactNode {
-    return (
-      <div className={style.content}>
-        <Header className={style.nav}>
-          <div className={style.logo} >
-            <img src="../../assets/qijiren.png" />
-            <h2>码农机器人</h2>
-          </div>
-          <Button type="primary" style={{ cursor: 'pointer' }}>
-            <Link to='/login' >登录</Link>
-          </Button>
-        </Header>
-        <Layout>
-          <Content style={{ backgroundColor: '#fff' }}>
-            <HomeHeader />
-            <Row className={style.welcome}>
-              {
-                welcomeList.map((item: Welcome, index: number) => {
-                  return <Col key={index} span={8} className={style.item}>
-                    <img src={item.image} />
-                    <h3>{item.title}</h3>
-                    <p>{item.subtitle}</p>
-                  </Col>
-                })
-              }
-            </Row>
-            <div className={style.templateList}>
-              <div className={style.hotTitle}>
-                <h2>热门海报</h2>
-                <p>只需替换文字和图片，一键自动生成H5</p>
-              </div>
-              <TemplateList templateList={testData} />
+  return (
+    <div className={style.content}>
+      <Header className={style.nav}>
+        <div className={style.logo} >
+          <img src={JiQiRen} />
+          <h2>码农机器人</h2>
+        </div>
+        <Button type="primary" style={{ cursor: 'pointer' }}>
+          <Link to='/login' >登录</Link>
+        </Button>
+      </Header>
+      <Layout>
+        <Content style={{ backgroundColor: '#fff' }}>
+          <HomeHeader />
+          <Row className={style.welcome}>
+            {
+              welcomeList.map((item: Welcome, index: number) => {
+                return <Col key={index} span={8} className={style.item}>
+                  <img src={item.image} />
+                  <h3>{item.title}</h3>
+                  <p>{item.subtitle}</p>
+                </Col>
+              })
+            }
+          </Row>
+          <div className={style.templateList}>
+            <div className={style.hotTitle}>
+              <h2>热门海报</h2>
+              <p>只需替换文字和图片，一键自动生成H5</p>
             </div>
-          </Content>
-          <Footer style={{ textAlign: 'center' }}>A hard-working code farm robot ©2021 Created by Robot</Footer>
-        </Layout>
-      </div>
-      // <div className="content-container">
-      //   <h1>Coder X 一个任劳任怨的码农机器人</h1>
-      //   <img alt="暂无图片" src="" />
-      //   <Button type="primary">
-      //     <Link to='/design'>开始设计</Link>
-      //   </Button>
+            <TemplateList templateList={testData} />
+          </div>
+        </Content>
+        <Footer style={{ textAlign: 'center' }}>A hard-working code farm robot ©2021 Created by Robot</Footer>
+      </Layout>
+    </div>
+    // <div className="content-container">
+    //   <h1>Coder X 一个任劳任怨的码农机器人</h1>
+    //   <img alt="暂无图片" src="" />
+    //   <Button type="primary">
+    //     <Link to='/design'>开始设计</Link>
+    //   </Button>
 
-      // </div>
-    )
-  }
+    // </div>
+  )
 }
+export default Index;
